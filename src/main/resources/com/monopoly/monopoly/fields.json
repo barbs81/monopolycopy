@@ -1,6 +1,6 @@
 [
   {
-    "id": "field1",
+    "id": "b1",
     "name": "Go!!!",
     "price": 0,
     "rent": 0,
@@ -9,7 +9,7 @@
     "description": "All players start from here. After the first round, each player gets $200 when they reach this field."
   },
   {
-    "id": "field2",
+    "id": "b2",
     "name": "Hietzing",
     "price": 80,
     "rent": 10,
@@ -18,7 +18,7 @@
     "description": "Hietzing is known as the Nobel District, because lots of fancy people used to live here."
   },
   {
-    "id": "field3",
+    "id": "b3",
     "name": "Penzing",
     "price": 100,
     "rent": 15,
@@ -27,7 +27,7 @@
     "description": "In Penzing, you will find a lot of nature and architecture from Otto Wagner."
   },
   {
-    "id": "field4",
+    "id": "b4",
     "name": "Bad Haircut",
     "price": 0,
     "rent": 0,
@@ -36,7 +36,7 @@
     "description": "You decided to save money on a haircut and now you got a bad one. You have to play the rest of the game with a bad haircut. Sorry!"
   },
   {
-    "id": "field5",
+    "id": "b5",
     "name": "Leopoldstadt",
     "price": 220,
     "rent": 20,
@@ -45,7 +45,7 @@
     "description": "TODO"
   },
   {
-    "id": "field6",
+    "id": "b6",
     "name": "Westbahnhof",
     "price": 200,
     "rent": 20,
@@ -54,7 +54,7 @@
     "description": "If you buy this, you can be a proud owner of a train station."
   },
   {
-    "id": "field7",
+    "id": "b7",
     "name": "Wieden",
     "price": 180,
     "rent": 16,
@@ -63,7 +63,7 @@
     "description": "TODO"
   },
   {
-    "id": "field8",
+    "id": "b8",
     "name": "Margareten",
     "price": 160,
     "rent": 14,
@@ -72,7 +72,7 @@
     "description": "TODO"
   },
   {
-    "id": "field9",
+    "id": "b9",
     "name": "Good night!",
     "price": 0,
     "rent": 0,
@@ -81,7 +81,7 @@
     "description": "Capitalism is making you tired. Take a nap and you'll feel better when you wake up."
   },
   {
-    "id": "field10",
+    "id": "b10",
     "name": "Chance",
     "price": 0,
     "rent": 0,
@@ -90,7 +90,7 @@
     "description": "What's the worst that could happen."
   },
   {
-    "id": "field11",
+    "id": "b11",
     "name": "Go to Jail",
     "price": 0,
     "rent": 0,
@@ -99,7 +99,7 @@
     "description": "Oopsie, looks like you've done something bad."
   },
   {
-    "id": "field12",
+    "id": "b12",
     "name": "Favoriten",
     "price": 140,
     "rent": 12,
@@ -108,7 +108,7 @@
     "description": "TODO"
   },
   {
-    "id": "field13",
+    "id": "b13",
     "name": "Simmering",
     "price": 120,
     "rent": 10,
@@ -117,7 +117,7 @@
     "description": "TODO"
   },
   {
-    "id": "field14",
+    "id": "b14",
     "name": "Meidling",
     "price": 100,
     "rent": 8,
@@ -126,7 +126,7 @@
     "description": "TODO"
   },
   {
-    "id": "field15",
+    "id": "b15",
     "name": "Chance",
     "price": 0,
     "rent": 0,
@@ -135,7 +135,7 @@
     "description": "Good things happen to those who wait."
   },
   {
-    "id": "field16",
+    "id": "b16",
     "name": "Innere Stadt",
     "price": 300,
     "rent": 35,
@@ -144,7 +144,7 @@
     "description": "TODO"
   },
   {
-    "id": "field17",
+    "id": "b17",
     "name": "Landstraße",
     "price": 280,
     "rent": 30,
@@ -153,7 +153,7 @@
     "description": "TODO"
   },
   {
-    "id": "field18",
+    "id": "b18",
     "name": "Praterstern",
     "price": 200,
     "rent": 20,
@@ -162,7 +162,7 @@
     "description": "When you purchase this train station, you also get a free t-shirt."
   },
   {
-    "id": "field19",
+    "id": "b19",
     "name": "Bike stolen",
     "price": 0,
     "rent": 0,
@@ -171,7 +171,7 @@
     "description": "Someone stole your bike :("
   },
   {
-    "id": "field20",
+    "id": "b20",
     "name": "Klima bonus",
     "price": 0,
     "rent": 0,
@@ -180,7 +180,7 @@
     "description": "You're not the only one who doesn't know why you're getting this, but enjoy the extra $225."
   },
   {
-    "id": "field21",
+    "id": "b21",
     "name": "Mariahilf",
     "price": 260,
     "rent": 25,
@@ -189,7 +189,7 @@
     "description": "TODO"
   },
   {
-    "id": "field22",
+    "id": "b22",
     "name": "Jail",
     "price": 0,
     "rent": 0,
@@ -198,7 +198,7 @@
     "description": "You either have done something bad and you deserve this, or you're completely innocent and life is unfair."
   },
   {
-    "id": "field23",
+    "id": "b23",
     "name": "Neubau",
     "price": 200,
     "rent": 18,
@@ -207,7 +207,7 @@
     "description": "TODO"
   },
   {
-    "id": "field24",
+    "id": "b24",
     "name": "Josefstadt",
     "price": 200,
     "rent": 18,
@@ -216,7 +216,7 @@
     "description": "TODO"
   },
   {
-    "id": "field25",
+    "id": "b25",
     "name": "Alsergrund",
     "price": 200,
     "rent": 18,
@@ -225,7 +225,7 @@
     "description": "TODO"
   },
   {
-    "id": "field26",
+    "id": "b26",
     "name": "Währing",
     "price": 40,
     "rent": 1,
@@ -234,7 +234,7 @@
     "description": "TODO"
   },
   {
-    "id": "field27",
+    "id": "b27",
     "name": "Hauptbahnhof",
     "price": 200,
     "rent": 20,
@@ -243,7 +243,7 @@
     "description": "Best train station in Vienna."
   },
   {
-    "id": "field28",
+    "id": "b28",
     "name": "Rudolfsheim-Fünfhaus",
     "price": 70,
     "rent": 4,
@@ -252,7 +252,7 @@
     "description": "TODO"
   },
   {
-    "id": "field29",
+    "id": "b29",
     "name": "Chance",
     "price": 0,
     "rent": 0,
@@ -261,7 +261,7 @@
     "description": "Wish you good luck."
   },
   {
-    "id": "field30",
+    "id": "b30",
     "name": "Ottakring",
     "price": 60,
     "rent": 3,
@@ -270,7 +270,7 @@
     "description": "TODO"
   },
   {
-    "id": "field31",
+    "id": "b31",
     "name": "Hernals",
     "price": 50,
     "rent": 2,
@@ -279,7 +279,7 @@
     "description": "TODO"
   },
   {
-    "id": "field32",
+    "id": "b32",
     "name": "Free parking",
     "price": 0,
     "rent": 0,
@@ -288,7 +288,7 @@
     "description": "Lucky you, it's not easy to find free parking these days."
   },
   {
-    "id": "field33",
+    "id": "b33",
     "name": "Klima bonus",
     "price": 0,
     "rent": 0,
@@ -297,7 +297,7 @@
     "description": "Yey, more money."
   },
   {
-    "id": "field34",
+    "id": "b34",
     "name": "Chance",
     "price": 0,
     "rent": 0,
@@ -306,7 +306,7 @@
     "description": "Never say never."
   },
   {
-    "id": "field35",
+    "id": "b35",
     "name": "Brigittenau",
     "price": 20,
     "rent": 1,
@@ -315,7 +315,7 @@
     "description": "TODO"
   },
   {
-    "id": "field36",
+    "id": "b36",
     "name": "Floridsdorf",
     "price": 10,
     "rent": 1,
@@ -324,7 +324,7 @@
     "description": "TODO"
   },
   {
-    "id": "field37",
+    "id": "b37",
     "name": "Erdberg",
     "price": 200,
     "rent": 20,
@@ -333,7 +333,7 @@
     "description": "Can you own them all?"
   },
   {
-    "id": "field38",
+    "id": "b38",
     "name": "Chance",
     "price": 0,
     "rent": 0,
@@ -342,7 +342,7 @@
     "description": "Is it good or bad?."
   },
   {
-    "id": "field39",
+    "id": "b39",
     "name": "Döbling",
     "price": 30,
     "rent": 1,
@@ -351,7 +351,7 @@
     "description": "TODO"
   },
   {
-    "id": "field40",
+    "id": "b40",
     "name": "Liesing",
     "price": 30,
     "rent": 1,
@@ -360,7 +360,7 @@
     "description": "TODO"
   },
   {
-    "id": "field41",
+    "id": "b41",
     "name": "Donaustadt",
     "price": 30,
     "rent": 1,
@@ -369,7 +369,7 @@
     "description": "TODO"
   },
   {
-    "id": "field42",
+    "id": "b42",
     "name": "Chance",
     "price": 0,
     "rent": 0,

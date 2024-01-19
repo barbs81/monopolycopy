@@ -78,7 +78,7 @@ public class GameBoardController implements Initializable {
         own.appendText("Test Property"); //TODO: Remove
         events.clear();
         for (ActionCard actionCard : player.getEvents()) {
-            events.appendText(actionCard.getTitle() + "\n");
+            events.appendText(actionCard.getName() + "\n");
         }
         events.appendText("Test Event"); //TODO: Remove
     }
@@ -315,8 +315,10 @@ public class GameBoardController implements Initializable {
             indexPrevious = player.getPreviousPositionIndex();
             indexCurrent = player.getCurrentPositionIndex();
             color = player.getColor();
+            //TODO: Check that the field fx:id matches with the field id from the listOfFields
             fieldBoxes.get(indexPrevious).setStyle("-fx-border-color: white; -fx-border-width: 3");
             fieldBoxes.get(indexCurrent).setStyle("-fx-border-color:" + color + "; -fx-border-width: 3");
+            System.out.println("PlayerName: " + player.getName() + " is on field # " + player.getCurrentPositionIndex()); //TODO: Remove
         }
     }
 

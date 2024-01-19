@@ -1,112 +1,142 @@
 [
   {
-    "message": "Du hast die Lotterie gewonnen! Erhalte",
-    "pay": 100,
-    "move": 0
+    "name": "LOTTERY",
+    "message": "You won the lottery!",
+    "money": 100,
+    "moveDirection": 0,
+    "type": "MONEY"
   },
   {
+    "name": "IMMO MOGUL",
     "message": "Du wurdest zum Immobilienmogul ernannt. Erhalte Mieten im Wert von",
-    "pay": 50,
-    "move": 0
+    "money": 50,
+    "moveDirection": 0,
+    "type": "MONEY"
   },
   {
-    "message": "Strafzettel! Zahle Bußgeld in Höhe von",
-    "pay": -15,
-    "move": 0
+    "name": "TICKET DODGER",
+    "message": "You rode the U-bahn without buying a ticket. Now you have to pay!",
+    "money": -15,
+    "moveDirection": 0,
+    "type": "MONEY"
   },
   {
-    "message": "Dein Haus wurde von Termiten befallen. Zahle für Schädlingsbekämpfung",
-    "pay": -40,
-    "move": 0
+    "name": "BAD OWNER",
+    "message": "One of your properties is infected with termites. Pay for de-bugging!",
+    "money": -40,
+    "moveDirection": 0,
+    "type": "MONEY"
   },
   {
-    "message": "Freu dich über einen Steuerrückzahlung! Erhalte",
-    "pay": 20,
-    "move": 0
+    "name": "TAXES BACK",
+    "message": "You get some taxes paid back to you.",
+    "money": 20,
+    "moveDirection": 0,
+    "type": "MONEY"
   },
   {
-    "message": "Du gewinnst einen Schönheitswettbewerb. Erhalte Belohnung in Höhe von",
-    "pay": 25,
-    "move": 0
+    "name": "YOU ARE BEAUTIFUL",
+    "message": "You won a beauty contest and won a money prize!",
+    "money": 25,
+    "moveDirection": 0,
+    "type": "MONEY"
   },
   {
-    "message": "Weltreise! Ziehe auf das Startfeld und erhalte",
-    "pay": 0,
-    "move": 0
+    "name": "BACK TO SQUARE ONE",
+    "message": "Trip around the world (board). Go back to the Start Field!",
+    "money": 0,
+    "moveDirection": 0,
+    "type": "BACK_TO_START"
   },
   {
-    "message": "Dein Unternehmen boomt! Erhalte Dividenden in Höhe von",
-    "pay": 75,
-    "move": 0
+    "name": "BEST CEO",
+    "message": "Your company is booming! You get dividends paid out.",
+    "money": 75,
+    "moveDirection": 0,
+    "type": "MONEY"
   },
   {
-    "message": "Verdiene beim Verkauf von Aktien",
-    "pay": 50,
-    "move": 0
+    "name": "GOOD INVESTOR",
+    "message": "You earned money on a sale of some investements!",
+    "money": 50,
+    "moveDirection": 0,
+    "type": "MONEY"
   },
   {
-    "message": "Bankfehler zu deinen Gunsten. Erhalte",
-    "pay": 200,
-    "move": 0
+    "name": "BANK ERROR",
+    "message": "The bank made a mistake and transferred you extra money.",
+    "money": 200,
+    "moveDirection": 0,
+    "type": "MONEY"
   },
   {
-    "message": "Notfallausgaben! Zahle für Autoreparaturen",
-    "pay": -50,
-    "move": 0
+    "name": "AUTO REPAIRS",
+    "message": "You crashed your car and have to repair it!",
+    "money": -50,
+    "moveDirection": 0,
+    "type": "MONEY"
   },
   {
-    "message": "Erfolgreiche Investition! Erhalte aus deinen Geschäften",
-    "pay": 100,
-    "move": 0
+    "name": "BECOME A POLITICIAN",
+    "message": "You managed to win a local election and are Vienna's mayor. Extra income!",
+    "money": 50,
+    "moveDirection": 0,
+    "type": "MONEY"
   },
   {
-    "message": "Du wirst Bürgermeister! Erhalte für deine Dienste",
-    "pay": 50,
-    "move": 0
+    "name": "BILLS BILLS BILLS",
+    "message": "Payments for accrued loan interest",
+    "money": -30,
+    "moveDirection": 0,
+    "type": "MONEY"
   },
   {
-    "message": "Zahle für Schuldenabbau",
-    "pay": -30,
-    "move": 0
+    "name": "FAMOUS ARTIST",
+    "message": "You sold a piece of your artwork. You get paid!",
+    "money": 150,
+    "moveDirection": 0,
+    "type": "MONEY"
   },
   {
-    "message": "Deine Kunstwerke werden verkauft. Erhalte",
-    "pay": 150,
-    "move": 0
+    "name": "LUCKY GAMBLER",
+    "message": "You won a few rounds at the Casino. You get paid!",
+    "money": 75,
+    "moveDirection": 0,
+    "type": "MONEY"
   },
   {
-    "message": "Du gewinnst im Kasino! Erhalte",
-    "pay": 75,
-    "move": 0
+    "name": "RICH AUNT",
+    "message": "Surpise, your aunt was rich and left you some money.",
+    "money": 150,
+    "moveDirection": 0,
+    "type": "MONEY"
   },
   {
-    "message": "Überraschende Erbschaft! Erhalte von einem entfernten Verwandten",
-    "pay": 150,
-    "move": 0
+    "name": "YOGA SESSION",
+    "message": "You did yoga and paid for the session.",
+    "money": -25,
+    "moveDirection": 0,
+    "type": "MONEY"
   },
   {
-    "message": "Du organisierst eine Wohltätigkeitsveranstaltung. Zahle für gute Zwecke",
-    "pay": -25,
-    "move": 0
+    "name": "TREASURE",
+    "message": "You found a treasure in the garden and sold it for cash.",
+    "money": 50,
+    "moveDirection": 0,
+    "type": "MONEY"
   },
   {
-    "message": "Du landest auf dem Geisterhaus. Ziehe eine Zusatzkarte oder zahle Strafe in Höhe von",
-    "pay": -25,
-    "move": 0
+    "name": "LOST IN VIENNA",
+    "message": "You got lost in the city and have to go back a few fields.",
+    "money": 0,
+    "moveDirection": -3,
+    "type": "MOVE"
   },
   {
-    "message": "Du findest einen Schatz im Garten. Erhalte Belohnung in Höhe von",
-    "pay": 50,
-    "move": 0
-  },
-  {
-    "message": "Du verirrst dich in der Stadt. Gehe drei Felder zurück.",
-    "pay": 0,
-    "move": -3
-  },
-  {
-    "message": "Tour de Monopoly! Mache eine Runde um das Spielfeld.",
-    "pay": 0,
-    "move": 35
+    "name": "MONOPOLY TOUR",
+    "message": "Make a full round on the board game.",
+    "money": 0,
+    "moveDirection": 42,
+    "type": "MOVE"
   }
 ]
