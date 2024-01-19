@@ -11,15 +11,15 @@ public class Field {
     private int[] prices;
     private int properties;
     private Player owner;
-    public enum Type{
+    public enum FieldType{
         START, DISTRICT, EVENT, NOTHING, KLIMA_BONUS, STATION, PRISON, GO_TO_PRISON, FREE_PARKING;
     }
-    private Type type;
+    private FieldType type;
     private String description;
 
     private GameManager gameManager;
 
-    public Field(String id, String name, Type type, String description, GameManager gameManager){
+    public Field(String id, String name, FieldType type, String description, GameManager gameManager){
         this.id = id;
         this.name = name;
         this.type = type;
@@ -27,7 +27,7 @@ public class Field {
         this.gameManager = gameManager;
     }
 
-    public Field(String id, String name, int price, int rent, int[] prices, Type type, String description, GameManager gameManager) {
+    public Field(String id, String name, int price, int rent, int[] prices, FieldType type, String description, GameManager gameManager) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -53,8 +53,8 @@ public class Field {
     public int getProperties(){return this.properties;}
     public void setOwner(Player player){this.owner = player;}
     public Player getOwner(){return this.owner;}
-    public void setType(Type type){this.type = type;}
-    public Type getType(){return this.type;}
+    public void setType(FieldType type){this.type = type;}
+    public FieldType getType(){return this.type;}
     public void setDescription(String description){this.description = description;}
     public String getDescription(){return this.description;}
 
@@ -68,12 +68,12 @@ public class Field {
 
 
     public boolean action(Player p){
-        if(type != Type.STATION && type != Type.DISTRICT) return false;
+        if(type != FieldType.STATION && type != FieldType.DISTRICT) return false;
         if(owner == null && p.withdraw(price)) {
             owner = p;
             return true;
         }
-        if(owner == p && type == Type.DISTRICT &&
+        if(owner == p && type == FieldType.DISTRICT &&
                 properties < 6 && p.withdraw(price)) {
             properties += 1;
             return true;

@@ -1,5 +1,9 @@
 package com.monopoly.monopoly;
 
+import java.util.Random;
+
+import static com.monopoly.monopoly.GameManager.listOfActionCards;
+
 public class ActionCard {
 
     public enum ActionType{ MOVE, MONEY, BACK_TO_START; }
@@ -27,5 +31,10 @@ public class ActionCard {
     public int getMoveDirection() { return this.moveDirection; }
     public ActionType getActionType(){ return this.type; }
 
-    //TODO je nach karte aktion direkt durchführen und str zurückgeben
+    //Class functions
+    public int chooseActionCardRandom(){
+        Random random = new Random();
+        int index = random.nextInt(listOfActionCards.size());
+        return index;
+    }
 }

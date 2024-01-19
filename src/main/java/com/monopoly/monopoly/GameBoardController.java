@@ -4,10 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -18,6 +16,7 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 
+import static com.monopoly.monopoly.GameManager.listOfFields;
 import static com.monopoly.monopoly.GameManager.listOfPlayers;
 
 public class GameBoardController implements Initializable {
@@ -211,8 +210,8 @@ public class GameBoardController implements Initializable {
         String statement = "";
         for (int i = 0; i < gameManager.getListOfFields().size(); i++) {
             if (gameManager.getListOfFields().size() == fieldBoxes.size()) {
-                if (gameManager.getListOfFields().get(i).getType() == Field.Type.DISTRICT ||
-                        gameManager.getListOfFields().get(i).getType() == Field.Type.STATION) {
+                if (gameManager.getListOfFields().get(i).getType() == Field.FieldType.DISTRICT ||
+                        gameManager.getListOfFields().get(i).getType() == Field.FieldType.STATION) {
                     statement = "FIELD NAME: " + gameManager.getListOfFields().get(i).getName() + "\n" +
                             "PRICE: " + gameManager.getListOfFields().get(i).getPrice() + "\n" +
                             "RENT: " + gameManager.getListOfFields().get(i).getRent() + "\n" +
@@ -322,6 +321,54 @@ public class GameBoardController implements Initializable {
         }
     }
 
+    public void showAlert(Alert.AlertType type, String header, String contentText) {
+        Alert alert;
+        Image icon = new Image(getClass().getResourceAsStream("message.png"));
+        ImageView iconImageView = new ImageView(icon);
+        if(type == Alert.AlertType.CONFIRMATION){
+            alert = new Alert(Alert.AlertType.CONFIRMATION);
+        } else if (type == Alert.AlertType.WARNING){
+            alert = new Alert(Alert.AlertType.WARNING);
+        } else {
+            alert = new Alert(Alert.AlertType.INFORMATION);
+        }
+        alert.setTitle("MESSAGE");
+        alert.setHeaderText(header);
+        alert.setGraphic(iconImageView);
+        iconImageView.setFitWidth(48);
+        iconImageView.setFitHeight(48);
+        alert.setContentText(contentText);
+        alert.showAndWait();
+    }
+    //Note -> Player also has the option to leave, or if s/he is negative, has to leave
+    //Note -> Automatically removed if negative balance
+    //Note -> if only one player left, they are the winner
+    public void playerActionAlertsBasedOnField(Field.FieldType type){
+        switch(type){
+            case START:
+                break;
+            case DISTRICT:
+                showAlert(Alert.AlertType.INFORMATION, listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getName(), "You are on 'Go!!!' 200 is deposited in your bank account.");
+                break;
+            case EVENT:
+                showAlert(Alert.AlertType.INFORMATION, listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getName(), "You are on 'Go!!!' 200 is deposited in your bank account.");
+                break;
+            case NOTHING:
+                showAlert(Alert.AlertType.INFORMATION, listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getName(), "You are on 'Go!!!' 200 is deposited in your bank account.");
+                break;
+            case KLIMA_BONUS:
+                break;
+            case STATION:
+                showAlert(Alert.AlertType.INFORMATION, listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getName(), "You are on 'Go!!!' 200 is deposited in your bank account.");
+                break;
+            case PRISON:
+                break;
+            case GO_TO_PRISON:
+                break;
+            case FREE_PARKING:
+                break;
+        }
+    }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //All backend and frontend functions go into throwDice()
@@ -337,8 +384,11 @@ public class GameBoardController implements Initializable {
                 showNewDiceDots(diceArray);
                 gameManager.movePlayer(gameManager.getCurrentPlayer(), diceArray);
                 showPlayersOnCurrentField();
-                //choose Action depending on field -> Implement with Alert Windows (Player picks Yes, or No)
-                //Note -> Player also has the option to leave, or if s/he is negative, has to leave
+                Field.FieldType type = gameManager.checkCurrentPlayerFieldLocationType(gameManager.getCurrentPlayer());
+                playerActionAlertsBasedOnField(type);
+
+
+
                 //-> then remove player from the player list
                 //calculations for the player's attributes -> balance, in, out, usw.
                 //update player's GUI statistics -> reflect changes in the side boxes

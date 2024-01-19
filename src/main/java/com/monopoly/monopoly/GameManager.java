@@ -53,11 +53,11 @@ public class GameManager {
                         prices[j] = pricesJson.getInt(j);
                         System.out.println("prices: " + prices[j]); //TODO: Remove
                     }
-                    Field.Type type = Field.Type.valueOf(jsonObject.getString("type"));
+                    Field.FieldType type = Field.FieldType.valueOf(jsonObject.getString("type"));
                     System.out.println("type: " + type); //TODO: Remove
                     String description = jsonObject.getString("description");
                     System.out.println("description: " + description); //TODO: Remove
-                    if(type == Field.Type.DISTRICT || type == Field.Type.STATION){
+                    if(type == Field.FieldType.DISTRICT || type == Field.FieldType.STATION){
                         listOfFields.add(new Field(id, name, price, rent, prices, type, description, this));
                     } else {
                         listOfFields.add(new Field(id, name, type, description, this));
@@ -99,32 +99,6 @@ public class GameManager {
         }
     }
 
-    /*Create an inputStream, Read content into the inputStream, Parse the Json content into a Json Array,
-     * Save attributes of Json object into the Player object, add Player object into the Player List*/
-    /*public void createPlayerListFromJson(String fileName){
-        try {
-            InputStream inputStream = getClass().getResourceAsStream(fileName);
-            if (inputStream != null) {
-                String jsonContent = new Scanner(inputStream).useDelimiter("\\A").next();
-                JSONArray jsonArray = new JSONArray(jsonContent);
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    String id = jsonObject.getString("id");
-                    System.out.println("id: " + id); //TODO: Remove
-                    String name = jsonObject.getString("name");
-                    System.out.println("name: " + name); //TODO: Remove
-                    String color = jsonObject.getString("color");
-                    System.out.println("color: " + color); //TODO: Remove
-                    listOfPlayers.add(new Player(id, name, color));
-                }
-            } else {
-                System.out.println("Resource not found");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
-
     public void chooseStartPlayer(LinkedList <Player> listOfPlayers) {
         Random random = new Random();
         int index = random.nextInt(listOfPlayers.size());
@@ -148,6 +122,13 @@ public class GameManager {
         System.out.println("indexTargetField: " + indexTargetField); //TODO: Remove
         player.setPreviousPositionIndex(indexCurrentField);
         player.setCurrentPositionIndex(indexTargetField);
+    }
+
+    public Field.FieldType checkCurrentPlayerFieldLocationType(Player currentPlayer){
+        int index = currentPlayer.getCurrentPositionIndex();
+        Field.FieldType type = listOfFields.get(index).getType();
+        System.out.println("field type: " + type); //TODO: Remove
+        return type;
     }
 
 
