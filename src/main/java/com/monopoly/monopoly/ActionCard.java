@@ -6,7 +6,7 @@ import static com.monopoly.monopoly.GameManager.listOfActionCards;
 
 public class ActionCard {
 
-    public enum ActionType{ MOVE, MONEY, BACK_TO_START; }
+    public enum ActionType{ MOVE, MONEY, BACK_TO_START, GET_OUT_OF_JAIL; }
 
     private String name;
     private String message;

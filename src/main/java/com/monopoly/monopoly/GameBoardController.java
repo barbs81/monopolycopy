@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.LinkedList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import static com.monopoly.monopoly.GameManager.listOfFields;
@@ -46,13 +47,13 @@ public class GameBoardController implements Initializable {
         initializeDiceDots();
         initializeFieldBoxes();
         setFieldHovers();
-        showStartPlayer();
+        showCurrentPlayer();
         showPlayersData();
         pressThrowDice(throwDice, gameManager.getTwoDice());
     }
 
     //GUI Functions
-    public void showStartPlayer() {
+    public void showCurrentPlayer() {
         currentPlayer.setText(gameManager.getCurrentPlayer().getName() + "'s turn");
     }
 
@@ -207,21 +208,31 @@ public class GameBoardController implements Initializable {
     }
 
     public void setFieldHovers() {
+        String fieldName = "";
+        int price = 0;
+        int rent = 0;
+        Player owner = null;
+        String ownerName = "";
+        String description = "";
         String statement = "";
-        for (int i = 0; i < gameManager.getListOfFields().size(); i++) {
-            if (gameManager.getListOfFields().size() == fieldBoxes.size()) {
-                if (gameManager.getListOfFields().get(i).getType() == Field.FieldType.DISTRICT ||
-                        gameManager.getListOfFields().get(i).getType() == Field.FieldType.STATION) {
-                    statement = "FIELD NAME: " + gameManager.getListOfFields().get(i).getName() + "\n" +
-                            "PRICE: " + gameManager.getListOfFields().get(i).getPrice() + "\n" +
-                            "RENT: " + gameManager.getListOfFields().get(i).getRent() + "\n" +
-                            "OWNER: " + gameManager.getListOfFields().get(i).getOwner() + "\n" +
-                            "DESCRIPTION: " + gameManager.getListOfFields().get(i).getDescription() + "\n";
+        for (int i = 0; i < listOfFields.size(); i++) {
+            if (listOfFields.size() == fieldBoxes.size()) {
+                fieldName = listOfFields.get(i).getName();
+                price = listOfFields.get(i).getPrice();
+                rent = listOfFields.get(i).getRent();
+                owner = listOfFields.get(i).getOwner();
+                description = listOfFields.get(i).getDescription();
+                if (listOfFields.get(i).getType() == Field.FieldType.PROPERTY) {
+                    if(listOfFields.get(i).getOwner() != null){
+                        ownerName = listOfFields.get(i).getOwner().getName();
+                        statement = "field: " + fieldName + "\n" + "price: " + price + "\n" + "rent: " + rent + "\n" + "owner: " + ownerName + "\n" + description;
+                    } else {
+                        statement = "field: " + fieldName + "\n" + "price: " + price + "\n" + "rent: " + rent + "\n" + "owner: " + owner + "\n" + description;
+                    }
                 } else {
-                    statement = "FIELD NAME: " + gameManager.getListOfFields().get(i).getName() + "\n" +
-                            "DESCRIPTION: " + gameManager.getListOfFields().get(i).getDescription() + "\n";
+                    statement = "field: " + fieldName + "\n" + description + "\n";
                 }
-                setFieldHover(gameManager.getListOfFields().get(i).getId(), statement);
+                setFieldHover(listOfFields.get(i).getId(), statement);
             }
         }
     }
@@ -321,51 +332,99 @@ public class GameBoardController implements Initializable {
         }
     }
 
-    public void showAlert(Alert.AlertType type, String header, String contentText) {
+    public void showAlert(Alert.AlertType type, String contentText) {
         Alert alert;
         Image icon = new Image(getClass().getResourceAsStream("message.png"));
         ImageView iconImageView = new ImageView(icon);
-        if(type == Alert.AlertType.CONFIRMATION){
-            alert = new Alert(Alert.AlertType.CONFIRMATION);
-        } else if (type == Alert.AlertType.WARNING){
+        if (type == Alert.AlertType.WARNING){
             alert = new Alert(Alert.AlertType.WARNING);
         } else {
             alert = new Alert(Alert.AlertType.INFORMATION);
         }
-        alert.setTitle("MESSAGE");
-        alert.setHeaderText(header);
+        alert.setTitle("message");
+        alert.setHeaderText(listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getName());
         alert.setGraphic(iconImageView);
         iconImageView.setFitWidth(48);
         iconImageView.setFitHeight(48);
         alert.setContentText(contentText);
         alert.showAndWait();
     }
-    //Note -> Player also has the option to leave, or if s/he is negative, has to leave
-    //Note -> Automatically removed if negative balance
-    //Note -> if only one player left, they are the winner
+
+    public boolean getConfirmation(String contentText){
+        boolean confirmed = false;
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Image icon = new Image(getClass().getResourceAsStream("questionMark.png"));
+        ImageView iconImageView = new ImageView(icon);
+        alert.setTitle("confirm");
+        String propertyName = listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getName();
+        int price = listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getPrice();
+        int rent = listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getRent();
+        alert.setHeaderText("name: " + propertyName + "\n" + "price: " + price + "\n" + "rent: " + rent);
+        alert.setGraphic(iconImageView);
+        iconImageView.setFitWidth(48);
+        iconImageView.setFitHeight(48);
+        alert.setContentText(contentText);
+        Optional<ButtonType> result = alert.showAndWait();
+        if(result.isPresent() && result.get() == ButtonType.OK){
+            confirmed = true;
+        }
+        return confirmed;
+    }
+
     public void playerActionAlertsBasedOnField(Field.FieldType type){
+        int canBuy;
+        boolean canLeaveJail, wants;
         switch(type){
-            case START:
-                break;
-            case DISTRICT:
-                showAlert(Alert.AlertType.INFORMATION, listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getName(), "You are on 'Go!!!' 200 is deposited in your bank account.");
+            case PROPERTY:
+                canBuy = gameManager.playerActionDistrictStationFieldCheckIfBuyable(gameManager.getCurrentPlayer());
+                if(canBuy == 0){
+                    Player owner = listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getOwner();
+                    int rent = listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getRent();
+                    showAlert(Alert.AlertType.INFORMATION, "You landed on " + owner.getName() + "'s property and will pay rent: " + rent + ".");
+                    gameManager.payAndGetRent(gameManager.getCurrentPlayer(), owner);
+                    showPlayersData();
+                    //TODO: Player leaves the game if his balance is negative
+                } else if (canBuy == 1){
+                    wants = getConfirmation("This property is not owned by anyone. Do you want to buy this property?");
+                    if(wants == true){
+                        gameManager.buyProperty(gameManager.getCurrentPlayer());
+                    }
+                    showPlayersData();
+                    setFieldHovers();
+                    //TODO: Player leaves the game if his balance is negative
+                } else if (canBuy == 2){
+                    showAlert(Alert.AlertType.INFORMATION, "You already own this property.");
+                }
                 break;
             case EVENT:
-                showAlert(Alert.AlertType.INFORMATION, listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getName(), "You are on 'Go!!!' 200 is deposited in your bank account.");
-                break;
-            case NOTHING:
-                showAlert(Alert.AlertType.INFORMATION, listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getName(), "You are on 'Go!!!' 200 is deposited in your bank account.");
                 break;
             case KLIMA_BONUS:
-                break;
-            case STATION:
-                showAlert(Alert.AlertType.INFORMATION, listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getName(), "You are on 'Go!!!' 200 is deposited in your bank account.");
+                showAlert(Alert.AlertType.INFORMATION, "You qualify for the Klima Bonus. You're $225 richer.");
+                gameManager.getCurrentPlayer().deposit(225);
+                showPlayersData();
                 break;
             case PRISON:
+                canLeaveJail = gameManager.getCurrentPlayer().getHasOutOfJailCard();
+                if(canLeaveJail == true){
+                    wants = getConfirmation("You have a get out of jail free card, do you want to use it? If not, you have to pay $25 to get out!");
+                    if(wants == true){
+                        gameManager.getCurrentPlayer().setHasOutOfJailCard(false);
+                    } else {
+                        showAlert(Alert.AlertType.INFORMATION, "$25 will be removed from your bank account.");
+                        gameManager.getCurrentPlayer().withdraw(25);
+                    }
+                    gameManager.moveNumberOfFields(-1);
+                    showPlayersData();
+                    showPlayersOnCurrentField();
+                }
                 break;
             case GO_TO_PRISON:
+                showAlert(Alert.AlertType.INFORMATION, "You've been arrested and are going to jail.");
+                gameManager.moveToPrison(gameManager.getCurrentPlayer());
+                showPlayersOnCurrentField();
+                playerActionAlertsBasedOnField(Field.FieldType.PRISON);
                 break;
-            case FREE_PARKING:
+            default:
                 break;
         }
     }
@@ -386,15 +445,21 @@ public class GameBoardController implements Initializable {
                 showPlayersOnCurrentField();
                 Field.FieldType type = gameManager.checkCurrentPlayerFieldLocationType(gameManager.getCurrentPlayer());
                 playerActionAlertsBasedOnField(type);
+                gameManager.chooseNextPlayer(gameManager.getCurrentPlayer());
+                showCurrentPlayer();
+                button.setDisable(false);
 
-
-
-                //-> then remove player from the player list
-                //calculations for the player's attributes -> balance, in, out, usw.
-                //update player's GUI statistics -> reflect changes in the side boxes
-                //choose next player
-                //enable throw dice button, so the round can start all over again
-                //Print out statistics when someone presses end button
+                //TODO:
+                //1. Remove player if balance negative (remove from player list) -> player lost
+                //2. If only one player remaining -> game over and player won -> print statistics
+                //3. Check the move functions -> handle when player goes beyond the array range
+                //4. End button -> game over, print statistics, close view
+                //5. If player moves to round 2, 3, 4, etc. -> add $200 to balance
+                //6. GUI -> need a better way to show players on field -> two players on one field at a time
+                //7. Test the game -> make corrections (improve code if have time)
+                //8. GUI changes -> if we have time to make it look better
+                //9. GUI pictures for the 23 district fields (or numbers 1-23 on the fields)
+                //10. Descriptions of districts in the fields.json file
             }
         });
     }

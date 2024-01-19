@@ -14,7 +14,7 @@
     "price": 80,
     "rent": 10,
     "prices": [5, 25, 80, 300, 475, 650],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "Hietzing is known as the Nobel District, because lots of fancy people used to live here."
   },
   {
@@ -23,7 +23,7 @@
     "price": 100,
     "rent": 15,
     "prices": [4, 20, 60, 250, 425, 600],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "In Penzing, you will find a lot of nature and architecture from Otto Wagner."
   },
   {
@@ -41,7 +41,7 @@
     "price": 220,
     "rent": 20,
     "prices": [18, 90, 270, 700, 875, 1050],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -50,7 +50,7 @@
     "price": 200,
     "rent": 20,
     "prices": [],
-    "type": "STATION",
+    "type": "PROPERTY",
     "description": "If you buy this, you can be a proud owner of a train station."
   },
   {
@@ -59,7 +59,7 @@
     "price": 180,
     "rent": 16,
     "prices": [14, 70, 210, 550, 725, 900],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -68,7 +68,7 @@
     "price": 160,
     "rent": 14,
     "prices": [12, 60, 180, 500, 675, 850],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -104,7 +104,7 @@
     "price": 140,
     "rent": 12,
     "prices": [10, 50, 150, 450, 625, 800],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -113,7 +113,7 @@
     "price": 120,
     "rent": 10,
     "prices": [8, 40, 120, 400, 575, 750],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -122,7 +122,7 @@
     "price": 100,
     "rent": 8,
     "prices": [6, 30, 90, 350, 525, 700],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -140,7 +140,7 @@
     "price": 300,
     "rent": 35,
     "prices": [28, 150, 420, 1000, 1200, 1400],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -149,7 +149,7 @@
     "price": 280,
     "rent": 30,
     "prices": [25, 120, 360, 850, 1025, 1200],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -158,7 +158,7 @@
     "price": 200,
     "rent": 20,
     "prices": [],
-    "type": "STATION",
+    "type": "PROPERTY",
     "description": "When you purchase this train station, you also get a free t-shirt."
   },
   {
@@ -185,7 +185,7 @@
     "price": 260,
     "rent": 25,
     "prices": [22, 110, 330, 800, 975, 1150],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -203,7 +203,7 @@
     "price": 200,
     "rent": 18,
     "prices": [16, 80, 240, 600, 775, 950],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -212,7 +212,7 @@
     "price": 200,
     "rent": 18,
     "prices": [16, 80, 240, 600, 775, 950],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -221,7 +221,7 @@
     "price": 200,
     "rent": 18,
     "prices": [16, 80, 240, 600, 775, 950],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -230,7 +230,7 @@
     "price": 40,
     "rent": 1,
     "prices": [1, 5, 20, 140, 315, 490],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -239,7 +239,7 @@
     "price": 200,
     "rent": 20,
     "prices": [],
-    "type": "STATION",
+    "type": "PROPERTY",
     "description": "Best train station in Vienna."
   },
   {
@@ -248,7 +248,7 @@
     "price": 70,
     "rent": 4,
     "prices": [3, 15, 50, 200, 375, 550],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -266,7 +266,7 @@
     "price": 60,
     "rent": 3,
     "prices": [2, 10, 40, 180, 355, 530],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -275,7 +275,7 @@
     "price": 50,
     "rent": 2,
     "prices": [1, 5, 20, 160, 335, 510],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -311,7 +311,7 @@
     "price": 20,
     "rent": 1,
     "prices": [1, 5, 20, 100, 275, 450],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -320,7 +320,7 @@
     "price": 10,
     "rent": 1,
     "prices": [1, 5, 20, 80, 255, 430],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -329,7 +329,7 @@
     "price": 200,
     "rent": 20,
     "prices": [],
-    "type": "STATION",
+    "type": "PROPERTY",
     "description": "Can you own them all?"
   },
   {
@@ -347,7 +347,7 @@
     "price": 30,
     "rent": 1,
     "prices": [1, 5, 20, 120, 295, 470],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -356,7 +356,7 @@
     "price": 30,
     "rent": 1,
     "prices": [1, 5, 20, 120, 295, 470],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {
@@ -365,7 +365,7 @@
     "price": 30,
     "rent": 1,
     "prices": [1, 5, 20, 120, 295, 470],
-    "type": "DISTRICT",
+    "type": "PROPERTY",
     "description": "TODO"
   },
   {

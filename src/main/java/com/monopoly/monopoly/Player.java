@@ -66,34 +66,15 @@ public class Player {
 
     //Class functions
 
-    public boolean deposit(int amount){
-        if(amount < 1){
-            return false;
-        } else {
-            balance += amount;
-            totalIncome += amount;
-            return true;
-        }
+    public void deposit(int amount){
+        this.balance += amount;
+        this.totalIncome += amount;
     }
 
-    public boolean withdraw(int amount){
-        // if(amnt < 1 || balance - amnt < 1) return false;
+    public void withdraw(int amount){
         balance -= amount;
         totalPayments += amount;
-        return true;
     }
 
-    public String notifyBalanceBeforeBuying(int amountToPay){
-        String notification;
-        int resultingBalance = balance - amountToPay;
-        if(resultingBalance <= -1){
-            notification = "After this transaction, your balance will be negative: $ " + resultingBalance;
-        } else if(resultingBalance == 0) {
-            notification = "After this transaction, your balance will be zero: $ " + resultingBalance;
-        } else {
-            notification = "After this transaction, your balance will be positive: $ " + resultingBalance;
-        }
-        return notification;
-    }
 
 }

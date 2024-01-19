@@ -57,7 +57,7 @@ public class GameManager {
                     System.out.println("type: " + type); //TODO: Remove
                     String description = jsonObject.getString("description");
                     System.out.println("description: " + description); //TODO: Remove
-                    if(type == Field.FieldType.DISTRICT || type == Field.FieldType.STATION){
+                    if(type == Field.FieldType.PROPERTY){
                         listOfFields.add(new Field(id, name, price, rent, prices, type, description, this));
                     } else {
                         listOfFields.add(new Field(id, name, type, description, this));
@@ -129,6 +129,51 @@ public class GameManager {
         Field.FieldType type = listOfFields.get(index).getType();
         System.out.println("field type: " + type); //TODO: Remove
         return type;
+    }
+
+    public int playerActionDistrictStationFieldCheckIfBuyable(Player currentPlayer){
+        Player owner = listOfFields.get(currentPlayer.getCurrentPositionIndex()).getOwner();
+        int canBuyField;
+        if(owner == null){
+            canBuyField = 1;
+        } else if (owner != null || owner.getName() == currentPlayer.getName()) {
+            canBuyField = 2;
+        } else {
+            canBuyField = 0;
+        }
+        return canBuyField;
+    }
+
+    public void buyProperty(Player buyer){
+        int amount = listOfFields.get(buyer.getCurrentPositionIndex()).getPrice();
+        buyer.withdraw(amount);
+        buyer.getOwn().add(listOfFields.get(buyer.getCurrentPositionIndex()));
+        listOfFields.get(buyer.getCurrentPositionIndex()).setOwner(buyer);
+    }
+
+    public void payAndGetRent(Player payer, Player receiver){
+        int rent = listOfFields.get(payer.getCurrentPositionIndex()).getRent();
+        payer.withdraw(rent);
+        receiver.deposit(rent);
+    }
+
+    public void moveNumberOfFields(int numberOfFields){
+        int temporary = currentPlayer.getCurrentPositionIndex();
+        currentPlayer.setCurrentPositionIndex(temporary  + numberOfFields);
+        currentPlayer.setPreviousPositionIndex(temporary);
+    }
+
+    public void moveToPrison(Player player){
+        moveNumberOfFields(11);
+    }
+
+    public void chooseNextPlayer(Player currentPlayer){
+        int index = listOfPlayers.indexOf(currentPlayer);
+        if(index < listOfPlayers.size() - 1){
+            setCurrentPlayer(listOfPlayers.get(index + 1));
+        } else {
+            setCurrentPlayer(listOfPlayers.get(0));
+        }
     }
 
 

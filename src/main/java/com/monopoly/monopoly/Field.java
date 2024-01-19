@@ -12,7 +12,7 @@ public class Field {
     private int properties;
     private Player owner;
     public enum FieldType{
-        START, DISTRICT, EVENT, NOTHING, KLIMA_BONUS, STATION, PRISON, GO_TO_PRISON, FREE_PARKING;
+        START, EVENT, NOTHING, KLIMA_BONUS, PROPERTY, PRISON, GO_TO_PRISON, FREE_PARKING;
     }
     private FieldType type;
     private String description;
@@ -60,40 +60,4 @@ public class Field {
 
     //Class functions
 
-
-
-
-
-
-
-
-    public boolean action(Player p){
-        if(type != FieldType.STATION && type != FieldType.DISTRICT) return false;
-        if(owner == null && p.withdraw(price)) {
-            owner = p;
-            return true;
-        }
-        if(owner == p && type == FieldType.DISTRICT &&
-                properties < 6 && p.withdraw(price)) {
-            properties += 1;
-            return true;
-        }
-        return false;
-    }
-
-    /*private ArrayList<Player> getPlayersOnField(){
-        ArrayList<Player> list = new ArrayList<>();
-        for(Player p:gameManager.getListOfPlayers()){
-            if(p.getCurrentPosition() == this) list.add(p);
-        }
-        return list;
-    }*/
-   /* @Override
-    public String toString() {
-        StringBuilder players = new StringBuilder();
-        for(Player p:getPlayersOnField()) players.append(p.getColor()).append(p.getName()).append(" \u001B[0m");
-
-        if(owner == null) return "[" + String.join(" | ", name, players, prices.toString()) + "]";
-        return "[" + String.join(" | ", owner.getColor() + name + "\u001B[0m", Integer.toString(properties), players, prices.toString()) + "]";
-    }*/
 }

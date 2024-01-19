@@ -138,5 +138,12 @@
     "money": 0,
     "moveDirection": 42,
     "type": "MOVE"
+  },
+  {
+    "name": "LEAVE JAIL",
+    "message": "You have a card that lets you leave jail for free.",
+    "money": 0,
+    "moveDirection": 0,
+    "type": "GET_OUT_OF_JAIL"
   }
 ]
