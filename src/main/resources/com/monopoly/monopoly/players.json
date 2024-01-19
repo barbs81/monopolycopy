@@ -1,0 +1,22 @@
+[
+  {
+    "id": "player1",
+    "name": "Gulsüm",
+    "color": "#F08080"
+  },
+  {
+    "id": "player2",
+    "name": "Mehmet",
+    "color": "#F0E68C"
+  },
+  {
+    "id": "player3",
+    "name": "Leon",
+    "color": "#8FBC8F"
+  },
+  {
+    "id": "player4",
+    "name": "Barbara",
+    "color": "#ADD8E6"
+  }
+]

@@ -1,0 +1,112 @@
+[
+  {
+    "message": "Du hast die Lotterie gewonnen! Erhalte",
+    "pay": 100,
+    "move": 0
+  },
+  {
+    "message": "Du wurdest zum Immobilienmogul ernannt. Erhalte Mieten im Wert von",
+    "pay": 50,
+    "move": 0
+  },
+  {
+    "message": "Strafzettel! Zahle Bußgeld in Höhe von",
+    "pay": -15,
+    "move": 0
+  },
+  {
+    "message": "Dein Haus wurde von Termiten befallen. Zahle für Schädlingsbekämpfung",
+    "pay": -40,
+    "move": 0
+  },
+  {
+    "message": "Freu dich über einen Steuerrückzahlung! Erhalte",
+    "pay": 20,
+    "move": 0
+  },
+  {
+    "message": "Du gewinnst einen Schönheitswettbewerb. Erhalte Belohnung in Höhe von",
+    "pay": 25,
+    "move": 0
+  },
+  {
+    "message": "Weltreise! Ziehe auf das Startfeld und erhalte",
+    "pay": 0,
+    "move": 0
+  },
+  {
+    "message": "Dein Unternehmen boomt! Erhalte Dividenden in Höhe von",
+    "pay": 75,
+    "move": 0
+  },
+  {
+    "message": "Verdiene beim Verkauf von Aktien",
+    "pay": 50,
+    "move": 0
+  },
+  {
+    "message": "Bankfehler zu deinen Gunsten. Erhalte",
+    "pay": 200,
+    "move": 0
+  },
+  {
+    "message": "Notfallausgaben! Zahle für Autoreparaturen",
+    "pay": -50,
+    "move": 0
+  },
+  {
+    "message": "Erfolgreiche Investition! Erhalte aus deinen Geschäften",
+    "pay": 100,
+    "move": 0
+  },
+  {
+    "message": "Du wirst Bürgermeister! Erhalte für deine Dienste",
+    "pay": 50,
+    "move": 0
+  },
+  {
+    "message": "Zahle für Schuldenabbau",
+    "pay": -30,
+    "move": 0
+  },
+  {
+    "message": "Deine Kunstwerke werden verkauft. Erhalte",
+    "pay": 150,
+    "move": 0
+  },
+  {
+    "message": "Du gewinnst im Kasino! Erhalte",
+    "pay": 75,
+    "move": 0
+  },
+  {
+    "message": "Überraschende Erbschaft! Erhalte von einem entfernten Verwandten",
+    "pay": 150,
+    "move": 0
+  },
+  {
+    "message": "Du organisierst eine Wohltätigkeitsveranstaltung. Zahle für gute Zwecke",
+    "pay": -25,
+    "move": 0
+  },
+  {
+    "message": "Du landest auf dem Geisterhaus. Ziehe eine Zusatzkarte oder zahle Strafe in Höhe von",
+    "pay": -25,
+    "move": 0
+  },
+  {
+    "message": "Du findest einen Schatz im Garten. Erhalte Belohnung in Höhe von",
+    "pay": 50,
+    "move": 0
+  },
+  {
+    "message": "Du verirrst dich in der Stadt. Gehe drei Felder zurück.",
+    "pay": 0,
+    "move": -3
+  },
+  {
+    "message": "Tour de Monopoly! Mache eine Runde um das Spielfeld.",
+    "pay": 0,
+    "move": 35
+  }
+]

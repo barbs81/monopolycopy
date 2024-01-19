@@ -1,0 +1,380 @@
+[
+  {
+    "id": "field1",
+    "name": "Go!!!",
+    "price": 0,
+    "rent": 0,
+    "prices": [],
+    "type": "START",
+    "description": "All players start from here. After the first round, each player gets $200 when they reach this field."
+  },
+  {
+    "id": "field2",
+    "name": "Hietzing",
+    "price": 80,
+    "rent": 10,
+    "prices": [5, 25, 80, 300, 475, 650],
+    "type": "DISTRICT",
+    "description": "Hietzing is known as the Nobel District, because lots of fancy people used to live here."
+  },
+  {
+    "id": "field3",
+    "name": "Penzing",
+    "price": 100,
+    "rent": 15,
+    "prices": [4, 20, 60, 250, 425, 600],
+    "type": "DISTRICT",
+    "description": "In Penzing, you will find a lot of nature and architecture from Otto Wagner."
+  },
+  {
+    "id": "field4",
+    "name": "Bad Haircut",
+    "price": 0,
+    "rent": 0,
+    "prices": [],
+    "type": "NOTHING",
+    "description": "You decided to save money on a haircut and now you got a bad one. You have to play the rest of the game with a bad haircut. Sorry!"
+  },
+  {
+    "id": "field5",
+    "name": "Leopoldstadt",
+    "price": 220,
+    "rent": 20,
+    "prices": [18, 90, 270, 700, 875, 1050],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field6",
+    "name": "Westbahnhof",
+    "price": 200,
+    "rent": 20,
+    "prices": [],
+    "type": "STATION",
+    "description": "If you buy this, you can be a proud owner of a train station."
+  },
+  {
+    "id": "field7",
+    "name": "Wieden",
+    "price": 180,
+    "rent": 16,
+    "prices": [14, 70, 210, 550, 725, 900],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field8",
+    "name": "Margareten",
+    "price": 160,
+    "rent": 14,
+    "prices": [12, 60, 180, 500, 675, 850],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field9",
+    "name": "Good night!",
+    "price": 0,
+    "rent": 0,
+    "prices": [],
+    "type": "NOTHING",
+    "description": "Capitalism is making you tired. Take a nap and you'll feel better when you wake up."
+  },
+  {
+    "id": "field10",
+    "name": "Chance",
+    "price": 0,
+    "rent": 0,
+    "prices": [],
+    "type": "EVENT",
+    "description": "What's the worst that could happen."
+  },
+  {
+    "id": "field11",
+    "name": "Go to Jail",
+    "price": 0,
+    "rent": 0,
+    "prices": [],
+    "type": "GO_TO_PRISON",
+    "description": "Oopsie, looks like you've done something bad."
+  },
+  {
+    "id": "field12",
+    "name": "Favoriten",
+    "price": 140,
+    "rent": 12,
+    "prices": [10, 50, 150, 450, 625, 800],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field13",
+    "name": "Simmering",
+    "price": 120,
+    "rent": 10,
+    "prices": [8, 40, 120, 400, 575, 750],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field14",
+    "name": "Meidling",
+    "price": 100,
+    "rent": 8,
+    "prices": [6, 30, 90, 350, 525, 700],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field15",
+    "name": "Chance",
+    "price": 0,
+    "rent": 0,
+    "prices": [],
+    "type": "EVENT",
+    "description": "Good things happen to those who wait."
+  },
+  {
+    "id": "field16",
+    "name": "Innere Stadt",
+    "price": 300,
+    "rent": 35,
+    "prices": [28, 150, 420, 1000, 1200, 1400],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field17",
+    "name": "Landstraße",
+    "price": 280,
+    "rent": 30,
+    "prices": [25, 120, 360, 850, 1025, 1200],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field18",
+    "name": "Praterstern",
+    "price": 200,
+    "rent": 20,
+    "prices": [],
+    "type": "STATION",
+    "description": "When you purchase this train station, you also get a free t-shirt."
+  },
+  {
+    "id": "field19",
+    "name": "Bike stolen",
+    "price": 0,
+    "rent": 0,
+    "prices": [],
+    "type": "NOTHING",
+    "description": "Someone stole your bike :("
+  },
+  {
+    "id": "field20",
+    "name": "Klima bonus",
+    "price": 0,
+    "rent": 0,
+    "prices": [],
+    "type": "KLIMA_BONUS",
+    "description": "You're not the only one who doesn't know why you're getting this, but enjoy the extra $225."
+  },
+  {
+    "id": "field21",
+    "name": "Mariahilf",
+    "price": 260,
+    "rent": 25,
+    "prices": [22, 110, 330, 800, 975, 1150],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field22",
+    "name": "Jail",
+    "price": 0,
+    "rent": 0,
+    "prices": [],
+    "type": "PRISON",
+    "description": "You either have done something bad and you deserve this, or you're completely innocent and life is unfair."
+  },
+  {
+    "id": "field23",
+    "name": "Neubau",
+    "price": 200,
+    "rent": 18,
+    "prices": [16, 80, 240, 600, 775, 950],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field24",
+    "name": "Josefstadt",
+    "price": 200,
+    "rent": 18,
+    "prices": [16, 80, 240, 600, 775, 950],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field25",
+    "name": "Alsergrund",
+    "price": 200,
+    "rent": 18,
+    "prices": [16, 80, 240, 600, 775, 950],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field26",
+    "name": "Währing",
+    "price": 40,
+    "rent": 1,
+    "prices": [1, 5, 20, 140, 315, 490],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field27",
+    "name": "Hauptbahnhof",
+    "price": 200,
+    "rent": 20,
+    "prices": [],
+    "type": "STATION",
+    "description": "Best train station in Vienna."
+  },
+  {
+    "id": "field28",
+    "name": "Rudolfsheim-Fünfhaus",
+    "price": 70,
+    "rent": 4,
+    "prices": [3, 15, 50, 200, 375, 550],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field29",
+    "name": "Chance",
+    "price": 0,
+    "rent": 0,
+    "prices": [],
+    "type": "EVENT",
+    "description": "Wish you good luck."
+  },
+  {
+    "id": "field30",
+    "name": "Ottakring",
+    "price": 60,
+    "rent": 3,
+    "prices": [2, 10, 40, 180, 355, 530],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field31",
+    "name": "Hernals",
+    "price": 50,
+    "rent": 2,
+    "prices": [1, 5, 20, 160, 335, 510],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field32",
+    "name": "Free parking",
+    "price": 0,
+    "rent": 0,
+    "prices": [],
+    "type": "FREE_PARKING",
+    "description": "Lucky you, it's not easy to find free parking these days."
+  },
+  {
+    "id": "field33",
+    "name": "Klima bonus",
+    "price": 0,
+    "rent": 0,
+    "prices": [],
+    "type": "KLIMA_BONUS",
+    "description": "Yey, more money."
+  },
+  {
+    "id": "field34",
+    "name": "Chance",
+    "price": 0,
+    "rent": 0,
+    "prices": [],
+    "type": "EVENT",
+    "description": "Never say never."
+  },
+  {
+    "id": "field35",
+    "name": "Brigittenau",
+    "price": 20,
+    "rent": 1,
+    "prices": [1, 5, 20, 100, 275, 450],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field36",
+    "name": "Floridsdorf",
+    "price": 10,
+    "rent": 1,
+    "prices": [1, 5, 20, 80, 255, 430],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field37",
+    "name": "Erdberg",
+    "price": 200,
+    "rent": 20,
+    "prices": [],
+    "type": "STATION",
+    "description": "Can you own them all?"
+  },
+  {
+    "id": "field38",
+    "name": "Chance",
+    "price": 0,
+    "rent": 0,
+    "prices": [],
+    "type": "EVENT",
+    "description": "Is it good or bad?."
+  },
+  {
+    "id": "field39",
+    "name": "Döbling",
+    "price": 30,
+    "rent": 1,
+    "prices": [1, 5, 20, 120, 295, 470],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field40",
+    "name": "Liesing",
+    "price": 30,
+    "rent": 1,
+    "prices": [1, 5, 20, 120, 295, 470],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field41",
+    "name": "Donaustadt",
+    "price": 30,
+    "rent": 1,
+    "prices": [1, 5, 20, 120, 295, 470],
+    "type": "DISTRICT",
+    "description": "TODO"
+  },
+  {
+    "id": "field42",
+    "name": "Chance",
+    "price": 0,
+    "rent": 0,
+    "prices": [],
+    "type": "EVENT",
+    "description": "Random things happen all the time."
+  }
+]
