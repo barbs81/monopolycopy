@@ -450,16 +450,20 @@ public class GameBoardController implements Initializable {
                 button.setDisable(false);
 
                 //TODO:
-                //1. Remove player if balance negative (remove from player list) -> player lost
-                //2. If only one player remaining -> game over and player won -> print statistics
-                //3. Check the move functions -> handle when player goes beyond the array range
+                //0. Complete the ActionCard Field player actions BARBARA
+                //1. Remove player if balance negative (remove from player list) -> player lost BARBARA
+                //2. If only one player remaining -> game over and player won -> print statistics BARBARA
+                //3. Check the move functions -> handle when player goes beyond the array range (LEON??)
                 //4. End button -> game over, print statistics, close view
-                //5. If player moves to round 2, 3, 4, etc. -> add $200 to balance
-                //6. GUI -> need a better way to show players on field -> two players on one field at a time
-                //7. Test the game -> make corrections (improve code if have time)
+                //5. If player moves to round 2, 3, 4, etc. -> add $200 to balance (LEON)
+                //6. GUI -> need a better way to show players on field -> two players on one field at a time (LEON -> BARBARA)
+                //7. Test the game -> make corrections (improve code if have time) (MEHMET)
                 //8. GUI changes -> if we have time to make it look better
-                //9. GUI pictures for the 23 district fields (or numbers 1-23 on the fields)
+                //9. GUI pictures for the 23 district fields (or numbers 1-23 on the fields) (Name in der mittle -> BARBARA)
                 //10. Descriptions of districts in the fields.json file
+                //11. Go through TODO:s in code and remove print test functions + unused variables
+                //12. Error: "You already own this property, when two players stand on the same field" (MEHMET)
+                //13. Error: Correct the umlauts when data brought in from Json file (MEHMET)
             }
         });
     }
