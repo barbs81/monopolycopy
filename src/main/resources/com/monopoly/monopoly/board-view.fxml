@@ -500,7 +500,7 @@
                 <Image url="@MonopolgyGuyWithMoney.jpeg" />
             </image>
         </ImageView>
-        <Button fx:id="throwDice" layoutX="284.0" layoutY="409.0" mnemonicParsing="false" style="-fx-background-color: #5F9EA0;" text="Throw Dice">
+        <Button fx:id="throwDice" layoutX="284.0" layoutY="409.0" mnemonicParsing="false" style="-fx-background-color: #5F9EA0; -fx-cursor: hand;" text="Throw Dice">
             <font>
                 <Font name="Consolas Bold" size="12.0" />
             </font>

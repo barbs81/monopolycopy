@@ -145,7 +145,7 @@
   },
   {
     "id": "b17",
-    "name": "Landstraße",
+    "name": "Landstrasse",
     "price": 280,
     "rent": 30,
     "prices": [25, 120, 360, 850, 1025, 1200],
@@ -226,7 +226,7 @@
   },
   {
     "id": "b26",
-    "name": "Währing",
+    "name": "Waehring",
     "price": 40,
     "rent": 1,
     "prices": [1, 5, 20, 140, 315, 490],
@@ -244,7 +244,7 @@
   },
   {
     "id": "b28",
-    "name": "Rudolfsheim-Fünfhaus",
+    "name": "Rudolfsheim-Fuenfhaus",
     "price": 70,
     "rent": 4,
     "prices": [3, 15, 50, 200, 375, 550],
@@ -343,7 +343,7 @@
   },
   {
     "id": "b39",
-    "name": "Döbling",
+    "name": "Doebling",
     "price": 30,
     "rent": 1,
     "prices": [1, 5, 20, 120, 295, 470],

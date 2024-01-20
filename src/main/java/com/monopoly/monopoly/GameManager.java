@@ -115,12 +115,14 @@ public class GameManager {
 
     public void movePlayer(Player player, int [] diceResult){
         int numberOfMoves = diceResult[0] + diceResult[1];
-        System.out.println("Player is: " + player.getName()); //TODO: Remove
         int indexCurrentField = player.getCurrentPositionIndex();
-        System.out.println("indexCurrentField: " + indexCurrentField); //TODO: Remove
+        int fieldsSize = listOfFields.size() - 1;
         int indexTargetField = indexCurrentField + numberOfMoves;
-        System.out.println("indexTargetField: " + indexTargetField); //TODO: Remove
+
+        indexTargetField = indexTargetField > fieldsSize ? indexTargetField % fieldsSize : indexTargetField ;
+
         player.setPreviousPositionIndex(indexCurrentField);
+
         player.setCurrentPositionIndex(indexTargetField);
     }
 
@@ -132,11 +134,12 @@ public class GameManager {
     }
 
     public int playerActionDistrictStationFieldCheckIfBuyable(Player currentPlayer){
-        Player owner = listOfFields.get(currentPlayer.getCurrentPositionIndex()).getOwner();
+        Field currentField = listOfFields.get(currentPlayer.getCurrentPositionIndex());
+        Player owner = currentField.getOwner();
         int canBuyField;
         if(owner == null){
             canBuyField = 1;
-        } else if (owner != null || owner.getName() == currentPlayer.getName()) {
+        } else if (owner.getName().equals(currentPlayer.getName())) {
             canBuyField = 2;
         } else {
             canBuyField = 0;
@@ -146,9 +149,11 @@ public class GameManager {
 
     public void buyProperty(Player buyer){
         int amount = listOfFields.get(buyer.getCurrentPositionIndex()).getPrice();
-        buyer.withdraw(amount);
-        buyer.getOwn().add(listOfFields.get(buyer.getCurrentPositionIndex()));
-        listOfFields.get(buyer.getCurrentPositionIndex()).setOwner(buyer);
+
+            buyer.withdraw(amount);
+            buyer.getOwn().add(listOfFields.get(buyer.getCurrentPositionIndex()));
+            listOfFields.get(buyer.getCurrentPositionIndex()).setOwner(buyer);
+
     }
 
     public void payAndGetRent(Player payer, Player receiver){
@@ -167,7 +172,7 @@ public class GameManager {
         moveNumberOfFields(11);
     }
 
-    public void chooseNextPlayer(Player currentPlayer){
+public void chooseNextPlayer(Player currentPlayer){
         int index = listOfPlayers.indexOf(currentPlayer);
         if(index < listOfPlayers.size() - 1){
             setCurrentPlayer(listOfPlayers.get(index + 1));
