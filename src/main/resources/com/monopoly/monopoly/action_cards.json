@@ -8,7 +8,7 @@
   },
   {
     "name": "IMMO MOGUL",
-    "message": "Du wurdest zum Immobilienmogul ernannt. Erhalte Mieten im Wert von",
+    "message": "You became a property mogul and get some extra money!",
     "money": 50,
     "moveDirection": 0,
     "type": "MONEY"

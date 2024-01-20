@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -20,9 +21,9 @@
                     </image>
                 </ImageView>
          </children></VBox>
-        <VBox fx:id="b20" layoutX="5.0" layoutY="132.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b20" layoutX="5.0" layoutY="132.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #D8BFD8;">
             <children>
-            <Label text="KlimaBonus1" textOverrun="CLIP">
+            <Label text="KlimaBonus 1" textOverrun="CLIP">
                <font>
                   <Font name="Consolas Bold" size="8.0" />
                </font>
@@ -103,11 +104,14 @@
                <viewport>
                   <Rectangle2D />
                </viewport>
+               <VBox.margin>
+                  <Insets left="7.0" />
+               </VBox.margin>
             </ImageView>
          </children></VBox>
-        <VBox fx:id="b15" layoutX="5.0" layoutY="424.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b15" layoutX="5.0" layoutY="424.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #D8BFD8;">
             <children>
-            <Label text="Event2" textOverrun="CLIP">
+            <Label text="Event 2" textOverrun="CLIP">
                <font>
                   <Font name="Consolas Bold" size="12.0" />
                </font>
@@ -116,6 +120,9 @@
                     <image>
                         <Image url="@chanceEvent.png" />
                     </image>
+               <VBox.margin>
+                  <Insets left="6.0" />
+               </VBox.margin>
                 </ImageView>
             </children></VBox>
         <VBox fx:id="b14" layoutX="5.0" layoutY="483.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
@@ -180,6 +187,9 @@
                <viewport>
                   <Rectangle2D />
                </viewport>
+               <VBox.margin>
+                  <Insets left="7.0" />
+               </VBox.margin>
                 </ImageView>
             </children></VBox>
         <VBox fx:id="b28" layoutX="356.0" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
@@ -190,9 +200,9 @@
                </font>
             </Label>
          </children></VBox>
-        <VBox fx:id="b29" layoutX="414.5" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b29" layoutX="414.5" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #D8BFD8;">
             <children>
-            <Label text="Event3" textOverrun="CLIP">
+            <Label text="Event 3" textOverrun="CLIP">
                <font>
                   <Font name="Consolas Bold" size="12.0" />
                </font>
@@ -201,6 +211,9 @@
                     <image>
                         <Image url="@chanceEvent.png" />
                     </image>
+               <VBox.margin>
+                  <Insets left="6.0" />
+               </VBox.margin>
                 </ImageView>
             </children></VBox>
         <VBox fx:id="b31" layoutX="531.5" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
@@ -227,9 +240,9 @@
                </font>
             </Label>
          </children></VBox>
-        <VBox fx:id="b42" layoutX="590.0" layoutY="600.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b42" layoutX="590.0" layoutY="600.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #D8BFD8;">
             <children>
-            <Label text="Event6" textOverrun="CLIP">
+            <Label text="Event 6" textOverrun="CLIP">
                <font>
                   <Font name="Consolas Bold" size="12.0" />
                </font>
@@ -238,6 +251,9 @@
                     <image>
                         <Image url="@chanceEvent.png" />
                     </image>
+               <VBox.margin>
+                  <Insets left="6.0" />
+               </VBox.margin>
                 </ImageView>
             </children></VBox>
         <VBox fx:id="b41" layoutX="590.0" layoutY="541.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
@@ -248,9 +264,9 @@
                </font>
             </Label>
          </children></VBox>
-        <VBox fx:id="b33" layoutX="590.0" layoutY="73.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b33" layoutX="590.0" layoutY="73.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #D8BFD8;">
             <children>
-            <Label text="KlimaBonus2" textOverrun="CLIP">
+            <Label text="KlimaBonus 2" textOverrun="CLIP">
                <font>
                   <Font name="Consolas Bold" size="8.0" />
                </font>
@@ -261,9 +277,9 @@
                     </image>
                 </ImageView>
             </children></VBox>
-        <VBox fx:id="b34" layoutX="590.0" layoutY="132.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b34" layoutX="590.0" layoutY="132.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #D8BFD8;">
             <children>
-            <Label text="Event4" textOverrun="CLIP">
+            <Label text="Event 4" textOverrun="CLIP">
                <font>
                   <Font name="Consolas Bold" size="12.0" />
                </font>
@@ -272,6 +288,9 @@
                     <image>
                         <Image url="@chanceEvent.png" />
                     </image>
+               <VBox.margin>
+                  <Insets left="6.0" />
+               </VBox.margin>
                 </ImageView>
             </children></VBox>
         <VBox fx:id="b35" layoutX="590.0" layoutY="190.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
@@ -296,11 +315,14 @@
                <viewport>
                   <Rectangle2D />
                </viewport>
+               <VBox.margin>
+                  <Insets left="7.0" />
+               </VBox.margin>
             </ImageView>
          </children></VBox>
-        <VBox fx:id="b38" layoutX="590.0" layoutY="366.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b38" layoutX="590.0" layoutY="366.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #D8BFD8;">
             <children>
-            <Label text="Event5" textOverrun="CLIP">
+            <Label text="Event 5" textOverrun="CLIP">
                <font>
                   <Font name="Consolas Bold" size="12.0" />
                </font>
@@ -309,6 +331,9 @@
                     <image>
                         <Image url="@chanceEvent.png" />
                     </image>
+               <VBox.margin>
+                  <Insets left="6.0" />
+               </VBox.margin>
                 </ImageView>
             </children></VBox>
         <VBox fx:id="b39" layoutX="590.0" layoutY="424.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
@@ -343,17 +368,20 @@
                </font>
             </Label>
          </children></VBox>
-        <VBox fx:id="b10" layoutX="63.5" layoutY="658.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b10" layoutX="63.5" layoutY="658.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #D8BFD8;">
             <children>
-            <Label text="Event1" textOverrun="CLIP">
+            <Label text="Event 1" textOverrun="CLIP">
                <font>
                   <Font name="Consolas Bold" size="12.0" />
                </font>
             </Label>
-                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView blendMode="SRC_ATOP" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@chanceEvent.png" />
                     </image>
+               <VBox.margin>
+                  <Insets left="6.0" />
+               </VBox.margin>
                 </ImageView>
             </children></VBox>
         <VBox fx:id="b9" layoutX="122.0" layoutY="658.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: white;">
@@ -394,6 +422,9 @@
                <viewport>
                   <Rectangle2D />
                </viewport>
+               <VBox.margin>
+                  <Insets left="7.0" />
+               </VBox.margin>
             </ImageView>
          </children></VBox>
         <VBox fx:id="b5" layoutX="356.0" layoutY="658.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
@@ -420,9 +451,9 @@
                </font>
             </Label>
          </children></VBox>
-        <Pane fx:id="pane1" layoutX="660.0" layoutY="15.0" prefHeight="169.0" prefWidth="276.0" style="-fx-background-color: #F08080;" visible="false">
+        <Pane fx:id="pane1" layoutX="660.0" layoutY="15.0" prefHeight="169.0" prefWidth="276.0" style="-fx-background-color: #F08080;">
             <children>
-                <Label fx:id="name1" alignment="CENTER" layoutX="94.0" layoutY="7.0" text="Player name">
+                <Label fx:id="name1" alignment="CENTER" layoutX="13.0" layoutY="7.0" text="Player name">
                     <font>
                         <Font name="Consolas Bold" size="12.0" />
                     </font>
@@ -471,11 +502,16 @@
                         <Font name="Consolas" size="12.0" />
                     </font>
                 </Label>
+            <Label fx:id="player1Position" layoutX="159.0" layoutY="7.0" text="Position">
+               <font>
+                  <Font name="Consolas Bold" size="12.0" />
+               </font>
+            </Label>
             </children>
         </Pane>
-        <Pane fx:id="pane2" layoutX="660.0" layoutY="191.0" prefHeight="169.0" prefWidth="276.0" style="-fx-background-color: #F0E68C;" visible="false">
+        <Pane fx:id="pane2" layoutX="660.0" layoutY="191.0" prefHeight="169.0" prefWidth="276.0" style="-fx-background-color: #F0E68C;">
             <children>
-                <Label fx:id="name2" alignment="CENTER" layoutX="94.0" layoutY="7.0" text="Player name">
+                <Label fx:id="name2" alignment="CENTER" layoutX="13.0" layoutY="7.0" text="Player name">
                     <font>
                         <Font name="Consolas Bold" size="12.0" />
                     </font>
@@ -524,11 +560,16 @@
                         <Font name="Consolas" size="12.0" />
                     </font>
                 </Label>
+            <Label fx:id="player2Position" layoutX="159.0" layoutY="7.0" text="Position">
+               <font>
+                  <Font name="Consolas Bold" size="12.0" />
+               </font>
+            </Label>
             </children>
         </Pane>
-        <Pane fx:id="pane3" layoutX="660.0" layoutY="367.0" prefHeight="169.0" prefWidth="276.0" style="-fx-background-color: #8FBC8F;" visible="false">
+        <Pane fx:id="pane3" layoutX="660.0" layoutY="367.0" prefHeight="169.0" prefWidth="276.0" style="-fx-background-color: #8FBC8F;">
             <children>
-                <Label fx:id="name3" alignment="CENTER" layoutX="94.0" layoutY="7.0" text="Player name">
+                <Label fx:id="name3" alignment="CENTER" layoutX="13.0" layoutY="7.0" text="Player name">
                     <font>
                         <Font name="Consolas Bold" size="12.0" />
                     </font>
@@ -577,11 +618,16 @@
                         <Font name="Consolas" size="12.0" />
                     </font>
                 </Label>
+            <Label fx:id="player3Position" layoutX="159.0" layoutY="7.0" text="Position">
+               <font>
+                  <Font name="Consolas Bold" size="12.0" />
+               </font>
+            </Label>
             </children>
         </Pane>
-        <Pane fx:id="pane4" layoutX="660.0" layoutY="542.0" prefHeight="169.0" prefWidth="276.0" style="-fx-background-color: #ADD8E6;" visible="false">
+        <Pane fx:id="pane4" layoutX="660.0" layoutY="542.0" prefHeight="169.0" prefWidth="276.0" style="-fx-background-color: #ADD8E6;">
             <children>
-                <Label fx:id="name4" alignment="CENTER" layoutX="94.0" layoutY="7.0" text="Player name">
+                <Label fx:id="name4" alignment="CENTER" layoutX="13.0" layoutY="7.0" text="Player name">
                     <font>
                         <Font name="Consolas Bold" size="12.0" />
                     </font>
@@ -630,6 +676,11 @@
                         <Font name="Consolas" size="12.0" />
                     </font>
                 </Label>
+            <Label fx:id="player4Position" layoutX="159.0" layoutY="7.0" text="Position">
+               <font>
+                  <Font name="Consolas Bold" size="12.0" />
+               </font>
+            </Label>
             </children>
         </Pane>
         <Pane layoutX="220.0" layoutY="300.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #B0E0E6;">

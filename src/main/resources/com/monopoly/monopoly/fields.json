@@ -82,7 +82,7 @@
   },
   {
     "id": "b10",
-    "name": "Chance",
+    "name": "Event 1",
     "price": 0,
     "rent": 0,
     "prices": [],
@@ -91,7 +91,7 @@
   },
   {
     "id": "b11",
-    "name": "Jail",
+    "name": "Prison",
     "price": 0,
     "rent": 0,
     "prices": [],
@@ -127,7 +127,7 @@
   },
   {
     "id": "b15",
-    "name": "Chance",
+    "name": "Event 2",
     "price": 0,
     "rent": 0,
     "prices": [],
@@ -172,7 +172,7 @@
   },
   {
     "id": "b20",
-    "name": "Klima bonus",
+    "name": "Klima bonus 1",
     "price": 0,
     "rent": 0,
     "prices": [],
@@ -253,7 +253,7 @@
   },
   {
     "id": "b29",
-    "name": "Chance",
+    "name": "Event 3",
     "price": 0,
     "rent": 0,
     "prices": [],
@@ -289,7 +289,7 @@
   },
   {
     "id": "b33",
-    "name": "Klima bonus",
+    "name": "Klima bonus 2",
     "price": 0,
     "rent": 0,
     "prices": [],
@@ -298,7 +298,7 @@
   },
   {
     "id": "b34",
-    "name": "Chance",
+    "name": "Event 4",
     "price": 0,
     "rent": 0,
     "prices": [],
@@ -334,7 +334,7 @@
   },
   {
     "id": "b38",
-    "name": "Chance",
+    "name": "Event 5",
     "price": 0,
     "rent": 0,
     "prices": [],
@@ -370,7 +370,7 @@
   },
   {
     "id": "b42",
-    "name": "Chance",
+    "name": "Event 6",
     "price": 0,
     "rent": 0,
     "prices": [],

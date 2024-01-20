@@ -181,10 +181,18 @@ public class GameManager {
 
     public void chooseNextPlayer(Player currentPlayer){
         int index = listOfPlayers.indexOf(currentPlayer);
-        if(index < listOfPlayers.size() - 1){
-            setCurrentPlayer(listOfPlayers.get(index + 1));
+        if(index < listOfPlayers.size() -1){
+            if(listOfPlayers.get(index + 1).getInGame() == true){
+                setCurrentPlayer(listOfPlayers.get(index + 1));
+            } else {
+                chooseNextPlayer(listOfPlayers.get(index + 1));
+            }
         } else {
-            setCurrentPlayer(listOfPlayers.get(0));
+            if(listOfPlayers.get(0).getInGame() == true){
+                setCurrentPlayer(listOfPlayers.get(0));
+            } else {
+                chooseNextPlayer(listOfPlayers.get(0));
+            }
         }
     }
 
@@ -207,14 +215,17 @@ public class GameManager {
         }
     }
 
-    public void removePlayerFromGame(Player player){
-        listOfPlayers.remove(player);
+    public void disablePlayerFromGame(Player player){
+        player.setInGame(false);
     }
-    public boolean printStatsIfOneRemaining(int sizeOfPlayerList){
-        if(sizeOfPlayerList == 1){
-            return true;
-        } else {
-            return false;
+    public boolean printStatsIfOneRemaining(){
+        boolean oneRemaining = false;
+        int count = 0;
+        for(Player player : listOfPlayers){
+            if(player.getInGame() == true){
+                count++;
+            }
         }
+        return oneRemaining = count == 1 ? true : false;
     }
 }
