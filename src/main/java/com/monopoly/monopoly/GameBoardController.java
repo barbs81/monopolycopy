@@ -17,8 +17,7 @@ import java.util.LinkedList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import static com.monopoly.monopoly.GameManager.listOfFields;
-import static com.monopoly.monopoly.GameManager.listOfPlayers;
+import static com.monopoly.monopoly.GameManager.*;
 
 public class GameBoardController implements Initializable {
     @FXML
@@ -54,7 +53,6 @@ public class GameBoardController implements Initializable {
 
     //GUI Functions
     public void showCurrentPlayer() {
-
         currentPlayer.setText(gameManager.getCurrentPlayer().getName() + "'s turn");
     }
 
@@ -327,10 +325,16 @@ public class GameBoardController implements Initializable {
             indexCurrent = player.getCurrentPositionIndex();
             color = player.getColor();
             //TODO: Check that the field fx:id matches with the field id from the listOfFields
-            fieldBoxes.get(indexPrevious).setStyle("-fx-border-color: white; -fx-border-width: 3");
-            fieldBoxes.get(indexCurrent).setStyle("-fx-border-color:" + color + "; -fx-border-width: 3");
+            //fieldBoxes.get(indexPrevious).setStyle("-fx-border-color: white; -fx-border-width: 3");
+            //fieldBoxes.get(indexCurrent).setStyle("-fx-border-color:" + color + "; -fx-border-width: 3");
             System.out.println("PlayerName: " + player.getName() + " is on field # " + player.getCurrentPositionIndex()); //TODO: Remove
         }
+    }
+
+    public void changeFieldColorOwnerColor(Player buyer){
+        int index = buyer.getCurrentPositionIndex();
+        String color = buyer.getColor();
+        fieldBoxes.get(index).setStyle("-fx-background-color:" + color + ";");
     }
 
     public void showAlert(Alert.AlertType type, String contentText) {
@@ -372,9 +376,53 @@ public class GameBoardController implements Initializable {
         return confirmed;
     }
 
+    public void playerActionAlertsBasedOnActionCard(int index, ActionCard.ActionType type){
+        String message = listOfActionCards.get(index).getMessage();
+        int money = listOfActionCards.get(index).getMoney();
+        int moveDirection = listOfActionCards.get(index).getMoveDirection();
+        switch(type){
+            case MONEY:
+                showAlert(Alert.AlertType.INFORMATION, message + "That is $ : " + money + ".");
+                gameManager.getCurrentPlayer().deposit(money);
+                gameManager.updatePlayerEvents(index, gameManager.getCurrentPlayer());
+                showPlayersData();
+                //TODO: Remove player if balance is now negative
+                System.out.println("You landed on money"); //TODO: Remove
+                break;
+            case BACK_TO_START:
+                showAlert(Alert.AlertType.INFORMATION, message);
+                gameManager.moveToStart();
+                gameManager.updatePlayerEvents(index, gameManager.getCurrentPlayer());
+                showPlayersData();
+                System.out.println("You landed on back to start"); //TODO: Remove
+                break;
+            case MOVE:
+                showAlert(Alert.AlertType.INFORMATION, message + "That is : " + moveDirection + ".");
+                gameManager.moveNumberOfFields(moveDirection);
+                gameManager.updatePlayerEvents(index, gameManager.getCurrentPlayer());
+                showPlayersData();
+                System.out.println("You landed on move"); //TODO: Remove
+                break;
+            case GET_OUT_OF_JAIL:
+                if(gameManager.getCurrentPlayer().getHasOutOfJailCard() == true){
+                    showAlert(Alert.AlertType.INFORMATION, "You already have a 'Get-out-of-jail-free card");
+                } else {
+                    showAlert(Alert.AlertType.INFORMATION, message);
+                    gameManager.getCurrentPlayer().setHasOutOfJailCard(true);
+                    gameManager.updatePlayerEvents(index, gameManager.getCurrentPlayer());
+                    showPlayersData();
+                }
+                System.out.println("You landed on get out of jail"); //TODO: Remove
+                break;
+            default:
+                break;
+        }
+    }
+
     public void playerActionAlertsBasedOnField(Field.FieldType type){
-        int canBuy;
+        int canBuy, index;
         boolean canLeaveJail, wants;
+        ActionCard.ActionType actionType;
         switch(type){
             case PROPERTY:
                 canBuy = gameManager.playerActionDistrictStationFieldCheckIfBuyable(gameManager.getCurrentPlayer());
@@ -389,15 +437,19 @@ public class GameBoardController implements Initializable {
                     wants = getConfirmation("This property is not owned by anyone. Do you want to buy this property?");
                     if(wants == true){
                         gameManager.buyProperty(gameManager.getCurrentPlayer());
+                        changeFieldColorOwnerColor(gameManager.getCurrentPlayer());
                     }
                     showPlayersData();
                     setFieldHovers();
-                    //TODO: Player leaves the game if his balance is negative
+                    //TODO: Player leaves the game if his balance is negative but the field is no longer available
                 } else if (canBuy == 2){
                     showAlert(Alert.AlertType.INFORMATION, "You already own this property.");
                 }
                 break;
             case EVENT:
+                index = gameManager.chooseRandomActionCard();
+                actionType = gameManager.checkActionCardType(index);
+                playerActionAlertsBasedOnActionCard(index, actionType);
                 break;
             case KLIMA_BONUS:
                 showAlert(Alert.AlertType.INFORMATION, "You qualify for the Klima Bonus. You're $225 richer.");
@@ -451,19 +503,19 @@ public class GameBoardController implements Initializable {
                 button.setDisable(false);
 
                 //TODO:
-                //0. Complete the ActionCard Field player actions BARBARA
                 //1. Remove player if balance negative (remove from player list) -> player lost BARBARA
                 //2. If only one player remaining -> game over and player won -> print statistics BARBARA
-                //3. Check the move functions -> handle when player goes beyond the array range (LEON??)
-                //4. End button -> game over, print statistics, close view
-                //5. If player moves to round 2, 3, 4, etc. -> add $200 to balance (LEON)
+                //2.5 Going to prison field -> needs bug fixing MEHMET
+                //3. Handling player going beyond the array range MEHMET
+                //4. End button -> game over print statistics BARBARA
+                //5. Player gets $200 each time they finish a round MEHMET/LEON?
                 //6. GUI -> need a better way to show players on field -> two players on one field at a time (LEON -> BARBARA)
                 //7. Test the game -> make corrections (improve code if have time) (MEHMET)
                 //8. GUI changes -> if we have time to make it look better
-                //10. Descriptions of districts in the fields.json file
+                //10. Descriptions of districts in the fields.json file, if we have time
                 //11. Go through TODO:s in code and remove print test functions + unused variables
-                //12. Error: "You already own this property, when two players stand on the same field" (MEHMET)
-                //13. Error: Correct the umlauts when data brought in from Json file (MEHMET)
+                //12. Error: Correct the umlauts when data brought in from Json file
+                //13. Buying and showing houses on the owner's field -> increase in rent for visitor -> LEON?
             }
         });
     }

@@ -32,9 +32,5 @@ public class ActionCard {
     public ActionType getActionType(){ return this.type; }
 
     //Class functions
-    public int chooseActionCardRandom(){
-        Random random = new Random();
-        int index = random.nextInt(listOfActionCards.size());
-        return index;
-    }
+
 }

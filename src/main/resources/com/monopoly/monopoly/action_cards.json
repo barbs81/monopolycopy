@@ -141,7 +141,7 @@
   },
   {
     "name": "LEAVE JAIL",
-    "message": "You have a card that lets you leave jail for free.",
+    "message": "You now have a card that lets you leave jail for free.",
     "money": 0,
     "moveDirection": 0,
     "type": "GET_OUT_OF_JAIL"

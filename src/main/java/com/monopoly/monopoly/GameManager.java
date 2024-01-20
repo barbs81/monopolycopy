@@ -5,7 +5,7 @@ import java.util.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-
+//TODO: We could probably just have one Random random = new Random() for the whole class
 public class GameManager {
     static LinkedList<Field> listOfFields = new LinkedList<>();
     static LinkedList<Player> listOfPlayers = new LinkedList<>();
@@ -122,6 +122,7 @@ public class GameManager {
         System.out.println("indexTargetField: " + indexTargetField); //TODO: Remove
         player.setPreviousPositionIndex(indexCurrentField);
         player.setCurrentPositionIndex(indexTargetField);
+        //TODO: Set round number
     }
 
     public Field.FieldType checkCurrentPlayerFieldLocationType(Player currentPlayer){
@@ -136,12 +137,16 @@ public class GameManager {
         int canBuyField;
         if(owner == null){
             canBuyField = 1;
-        } else if (owner != null || owner.getName() == currentPlayer.getName()) {
+        } else if (owner != null && owner.getName() == currentPlayer.getName()) {
             canBuyField = 2;
         } else {
             canBuyField = 0;
         }
         return canBuyField;
+    }
+
+    public void updatePlayerEvents(int index, Player player){
+        player.getEvents().add(listOfActionCards.get(index));
     }
 
     public void buyProperty(Player buyer){
@@ -161,10 +166,17 @@ public class GameManager {
         int temporary = currentPlayer.getCurrentPositionIndex();
         currentPlayer.setCurrentPositionIndex(temporary  + numberOfFields);
         currentPlayer.setPreviousPositionIndex(temporary);
+        //TODO: Set Round number if changes
+    }
+
+    public void moveToStart(){
+        int currentIndex = currentPlayer.getCurrentPositionIndex();
+        moveNumberOfFields(currentIndex * -1);
+        currentPlayer.setRoundNumber(currentPlayer.getRoundNumber() + 1);
     }
 
     public void moveToPrison(Player player){
-        moveNumberOfFields(11);
+        moveNumberOfFields(-21);
     }
 
     public void chooseNextPlayer(Player currentPlayer){
@@ -174,6 +186,17 @@ public class GameManager {
         } else {
             setCurrentPlayer(listOfPlayers.get(0));
         }
+    }
+
+    public int chooseRandomActionCard(){
+        Random random = new Random();
+        int index = random.nextInt(listOfActionCards.size());
+        return index;
+    }
+
+    public ActionCard.ActionType checkActionCardType(int indexActionCardList) {
+        ActionCard.ActionType type = listOfActionCards.get(indexActionCardList).getActionType();
+        return type;
     }
 
 
