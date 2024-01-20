@@ -54,6 +54,7 @@ public class GameBoardController implements Initializable {
 
     //GUI Functions
     public void showCurrentPlayer() {
+
         currentPlayer.setText(gameManager.getCurrentPlayer().getName() + "'s turn");
     }
 
@@ -459,7 +460,6 @@ public class GameBoardController implements Initializable {
                 //6. GUI -> need a better way to show players on field -> two players on one field at a time (LEON -> BARBARA)
                 //7. Test the game -> make corrections (improve code if have time) (MEHMET)
                 //8. GUI changes -> if we have time to make it look better
-                //9. GUI pictures for the 23 district fields (or numbers 1-23 on the fields) (Name in der mittle -> BARBARA)
                 //10. Descriptions of districts in the fields.json file
                 //11. Go through TODO:s in code and remove print test functions + unused variables
                 //12. Error: "You already own this property, when two players stand on the same field" (MEHMET)
