@@ -91,12 +91,12 @@
   },
   {
     "id": "b11",
-    "name": "Go to Jail",
+    "name": "Jail",
     "price": 0,
     "rent": 0,
     "prices": [],
-    "type": "GO_TO_PRISON",
-    "description": "Oopsie, looks like you've done something bad."
+    "type": "PRISON",
+    "description": "You either have done something bad and you deserve this, or you're completely innocent and life is unfair.",
   },
   {
     "id": "b12",
@@ -145,21 +145,21 @@
   },
   {
     "id": "b17",
+    "name": "Praterstern",
+    "price": 200,
+    "rent": 20,
+    "prices": [],
+    "type": "PROPERTY",
+    "description": "When you purchase this train station, you also get a free t-shirt.",
+  },
+  {
+    "id": "b18",
     "name": "Landstraße",
     "price": 280,
     "rent": 30,
     "prices": [25, 120, 360, 850, 1025, 1200],
     "type": "PROPERTY",
     "description": "TODO"
-  },
-  {
-    "id": "b18",
-    "name": "Praterstern",
-    "price": 200,
-    "rent": 20,
-    "prices": [],
-    "type": "PROPERTY",
-    "description": "When you purchase this train station, you also get a free t-shirt."
   },
   {
     "id": "b19",
@@ -190,12 +190,12 @@
   },
   {
     "id": "b22",
-    "name": "Jail",
+    "name": "Free parking",
     "price": 0,
     "rent": 0,
     "prices": [],
-    "type": "PRISON",
-    "description": "You either have done something bad and you deserve this, or you're completely innocent and life is unfair."
+    "type": "FREE_PARKING",
+    "description": "Lucky you, it's not easy to find free parking these days.",
   },
   {
     "id": "b23",
@@ -280,12 +280,12 @@
   },
   {
     "id": "b32",
-    "name": "Free parking",
+    "name": "Go to Jail",
     "price": 0,
     "rent": 0,
     "prices": [],
-    "type": "FREE_PARKING",
-    "description": "Lucky you, it's not easy to find free parking these days."
+    "type": "GO_TO_PRISON",
+    "description": "Oopsie, looks like you've done something bad."
   },
   {
     "id": "b33",

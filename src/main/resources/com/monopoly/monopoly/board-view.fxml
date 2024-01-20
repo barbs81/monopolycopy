@@ -15,7 +15,7 @@
             <children>
                 <ImageView fitHeight="53.5" fitWidth="53.5" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Prison.jpg" />
+                        <Image url="@FreeParking.jpg" />
                     </image>
                 </ImageView>
             </children></VBox>
@@ -32,7 +32,7 @@
             <children>
                 <ImageView fitHeight="53.5" fitWidth="53.5" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@GoToJail.jpg" />
+                        <Image url="@Prison.jpg" />
                     </image>
                 </ImageView>
             </children></VBox>
@@ -47,15 +47,15 @@
         <VBox fx:id="b13" layoutX="5.0" layoutY="541.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;" />
         <VBox fx:id="b12" layoutX="5.0" layoutY="600.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;" />
         <VBox fx:id="b16" layoutX="5.0" layoutY="366.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;" />
-        <VBox fx:id="b18" layoutX="5.0" layoutY="249.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
-            <children>
+        <VBox fx:id="b18" layoutX="5.0" layoutY="249.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;" />
+        <VBox fx:id="b17" layoutX="5.0" layoutY="307.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+         <children>
                 <ImageView fitHeight="53.5" fitWidth="53.5" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@Praterstern.jpg" />
-                    </image>
+               <image>
+                  <Image url="@Praterstern.jpg" />
+               </image>
                 </ImageView>
-            </children></VBox>
-        <VBox fx:id="b17" layoutX="5.0" layoutY="307.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;" />
+         </children></VBox>
         <VBox fx:id="b15" layoutX="5.0" layoutY="424.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
             <children>
                 <ImageView fitHeight="53.5" fitWidth="53.5" pickOnBounds="true" preserveRatio="true">
@@ -70,7 +70,7 @@
             <children>
                 <ImageView fitHeight="53.5" fitWidth="53.5" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@FreeParking.jpg" />
+                        <Image url="@GoToJail.jpg" />
                     </image>
                 </ImageView>
             </children></VBox>
