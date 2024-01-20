@@ -199,5 +199,22 @@ public class GameManager {
         return type;
     }
 
+    public boolean checkIfNegativeBalance(){
+        if(currentPlayer.getBalance() < 0){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
+    public void removePlayerFromGame(Player player){
+        listOfPlayers.remove(player);
+    }
+    public boolean printStatsIfOneRemaining(int sizeOfPlayerList){
+        if(sizeOfPlayerList == 1){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

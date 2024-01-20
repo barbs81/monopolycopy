@@ -1,5 +1,6 @@
 package com.monopoly.monopoly;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,9 +14,7 @@ import javafx.scene.layout.VBox;
 
 
 import java.net.URL;
-import java.util.LinkedList;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import static com.monopoly.monopoly.GameManager.*;
 
@@ -49,6 +48,7 @@ public class GameBoardController implements Initializable {
         showCurrentPlayer();
         showPlayersData();
         pressThrowDice(throwDice, gameManager.getTwoDice());
+        endGame.setOnAction(event -> closeScene());
     }
 
     //GUI Functions
@@ -376,17 +376,50 @@ public class GameBoardController implements Initializable {
         return confirmed;
     }
 
+    public void printWinnerStatistics(boolean oneLeft){
+        if(oneLeft == true){
+            List <String> properties = new ArrayList<>();
+            List <String> events = new ArrayList<>();
+            Player winner = listOfPlayers.getFirst();
+            String name = winner.getName();
+            int balance = winner.getBalance();
+            int out = winner.getTotalPayments();
+            int in = winner.getTotalIncome();
+            for(ActionCard actionCard : winner.getEvents()){
+                events.add(actionCard.getName());
+            }
+            for(Field field : winner.getOwn()){
+                properties.add(field.getName());
+            }
+            String message = name + " You are the Winner! " + "You own: " + properties + "." + "You have: $" + balance + ". You earned: " + in + ". You spent: " + out + ". Your life experiences include: " + events + "." + " Thanks for playing. Goodbye!";
+            showAlert(Alert.AlertType.INFORMATION, message);
+            closeScene();
+        }
+    }
+
+    public void closeScene(){
+        Platform.exit();
+    }
+
     public void playerActionAlertsBasedOnActionCard(int index, ActionCard.ActionType type){
         String message = listOfActionCards.get(index).getMessage();
         int money = listOfActionCards.get(index).getMoney();
         int moveDirection = listOfActionCards.get(index).getMoveDirection();
+        boolean removePlayer, oneRemaining;
         switch(type){
             case MONEY:
                 showAlert(Alert.AlertType.INFORMATION, message + "That is $ : " + money + ".");
                 gameManager.getCurrentPlayer().deposit(money);
                 gameManager.updatePlayerEvents(index, gameManager.getCurrentPlayer());
                 showPlayersData();
-                //TODO: Remove player if balance is now negative
+                //Remove player if balance is now negative
+                removePlayer = gameManager.checkIfNegativeBalance();
+                if(removePlayer == true){
+                    showAlert(Alert.AlertType.WARNING, "Your balance is negative: " + gameManager.getCurrentPlayer().getBalance() + " You lost. Goodbye!");
+                    gameManager.removePlayerFromGame(gameManager.getCurrentPlayer());
+                    oneRemaining = gameManager.printStatsIfOneRemaining(listOfPlayers.size());
+                    printWinnerStatistics(oneRemaining);
+                }
                 System.out.println("You landed on money"); //TODO: Remove
                 break;
             case BACK_TO_START:
@@ -401,6 +434,7 @@ public class GameBoardController implements Initializable {
                 gameManager.moveNumberOfFields(moveDirection);
                 gameManager.updatePlayerEvents(index, gameManager.getCurrentPlayer());
                 showPlayersData();
+                //TODO: Depending on where the player moves, another action might have to be taken
                 System.out.println("You landed on move"); //TODO: Remove
                 break;
             case GET_OUT_OF_JAIL:
@@ -421,7 +455,7 @@ public class GameBoardController implements Initializable {
 
     public void playerActionAlertsBasedOnField(Field.FieldType type){
         int canBuy, index;
-        boolean canLeaveJail, wants;
+        boolean canLeaveJail, wants, removePlayer, oneRemaining;
         ActionCard.ActionType actionType;
         switch(type){
             case PROPERTY:
@@ -433,6 +467,14 @@ public class GameBoardController implements Initializable {
                     gameManager.payAndGetRent(gameManager.getCurrentPlayer(), owner);
                     showPlayersData();
                     //TODO: Player leaves the game if his balance is negative
+                    removePlayer = gameManager.checkIfNegativeBalance();
+                    if(removePlayer == true){
+                        showAlert(Alert.AlertType.WARNING, "Your balance is negative: " + gameManager.getCurrentPlayer().getBalance() + " You lost. Goodbye!");
+                        gameManager.removePlayerFromGame(gameManager.getCurrentPlayer());
+                        oneRemaining = gameManager.printStatsIfOneRemaining(listOfPlayers.size());
+                        printWinnerStatistics(oneRemaining);
+
+                    }
                 } else if (canBuy == 1){
                     wants = getConfirmation("This property is not owned by anyone. Do you want to buy this property?");
                     if(wants == true){
@@ -442,6 +484,13 @@ public class GameBoardController implements Initializable {
                     showPlayersData();
                     setFieldHovers();
                     //TODO: Player leaves the game if his balance is negative but the field is no longer available
+                    removePlayer = gameManager.checkIfNegativeBalance();
+                    if(removePlayer == true){
+                        showAlert(Alert.AlertType.WARNING, "Your balance is negative: " + gameManager.getCurrentPlayer().getBalance() + " You lost. Goodbye!");
+                        gameManager.removePlayerFromGame(gameManager.getCurrentPlayer());
+                        oneRemaining = gameManager.printStatsIfOneRemaining(listOfPlayers.size());
+                        printWinnerStatistics(oneRemaining);
+                    }
                 } else if (canBuy == 2){
                     showAlert(Alert.AlertType.INFORMATION, "You already own this property.");
                 }
@@ -503,11 +552,8 @@ public class GameBoardController implements Initializable {
                 button.setDisable(false);
 
                 //TODO:
-                //1. Remove player if balance negative (remove from player list) -> player lost BARBARA
-                //2. If only one player remaining -> game over and player won -> print statistics BARBARA
                 //2.5 Going to prison field -> needs bug fixing MEHMET
                 //3. Handling player going beyond the array range MEHMET
-                //4. End button -> game over print statistics BARBARA
                 //5. Player gets $200 each time they finish a round MEHMET/LEON?
                 //6. GUI -> need a better way to show players on field -> two players on one field at a time (LEON -> BARBARA)
                 //7. Test the game -> make corrections (improve code if have time) (MEHMET)
@@ -516,6 +562,7 @@ public class GameBoardController implements Initializable {
                 //11. Go through TODO:s in code and remove print test functions + unused variables
                 //12. Error: Correct the umlauts when data brought in from Json file
                 //13. Buying and showing houses on the owner's field -> increase in rent for visitor -> LEON?
+                //14. Test the alerts -> some of them are not custom to the situation (e.g., the current field remains in header)
             }
         });
     }
