@@ -40,23 +40,16 @@ public class GameManager {
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     String id = jsonObject.getString("id");
-                    System.out.println("id: " + id); //TODO: Remove
                     String name = jsonObject.getString("name");
-                    System.out.println("name: " + name); //TODO: Remove
                     int price = jsonObject.getInt("price");
-                    System.out.println("price: " + price); //TODO: Remove
                     int rent = jsonObject.getInt("rent");
-                    System.out.println("rent: " + rent); //TODO: Remove
                     JSONArray pricesJson = jsonObject.getJSONArray("prices");
                     int[] prices = new int[pricesJson.length()];
                     for(int j = 0; j < pricesJson.length(); j++){
                         prices[j] = pricesJson.getInt(j);
-                        System.out.println("prices: " + prices[j]); //TODO: Remove
                     }
                     Field.FieldType type = Field.FieldType.valueOf(jsonObject.getString("type"));
-                    System.out.println("type: " + type); //TODO: Remove
                     String description = jsonObject.getString("description");
-                    System.out.println("description: " + description); //TODO: Remove
                     if(type == Field.FieldType.PROPERTY){
                         listOfFields.add(new Field(id, name, price, rent, prices, type, description, this));
                     } else {
@@ -115,20 +108,20 @@ public class GameManager {
 
     public void movePlayer(Player player, int [] diceResult){
         int numberOfMoves = diceResult[0] + diceResult[1];
-        System.out.println("Player is: " + player.getName()); //TODO: Remove
         int indexCurrentField = player.getCurrentPositionIndex();
-        System.out.println("indexCurrentField: " + indexCurrentField); //TODO: Remove
+        int fieldsSize = listOfFields.size() - 1;
         int indexTargetField = indexCurrentField + numberOfMoves;
-        System.out.println("indexTargetField: " + indexTargetField); //TODO: Remove
+
+        indexTargetField = indexTargetField > fieldsSize ? indexTargetField % fieldsSize : indexTargetField ;
+
         player.setPreviousPositionIndex(indexCurrentField);
+
         player.setCurrentPositionIndex(indexTargetField);
-        //TODO: Set round number
     }
 
     public Field.FieldType checkCurrentPlayerFieldLocationType(Player currentPlayer){
         int index = currentPlayer.getCurrentPositionIndex();
         Field.FieldType type = listOfFields.get(index).getType();
-        System.out.println("field type: " + type); //TODO: Remove
         return type;
     }
 
@@ -137,7 +130,7 @@ public class GameManager {
         int canBuyField;
         if(owner == null){
             canBuyField = 1;
-        } else if (owner != null && owner.getName() == currentPlayer.getName()) {
+        } else if (owner.getName().equals(currentPlayer.getName())) {
             canBuyField = 2;
         } else {
             canBuyField = 0;
@@ -182,13 +175,13 @@ public class GameManager {
     public void chooseNextPlayer(Player currentPlayer){
         int index = listOfPlayers.indexOf(currentPlayer);
         if(index < listOfPlayers.size() -1){
-            if(listOfPlayers.get(index + 1).getInGame() == true){
+            if(listOfPlayers.get(index + 1).getInGame()){
                 setCurrentPlayer(listOfPlayers.get(index + 1));
             } else {
                 chooseNextPlayer(listOfPlayers.get(index + 1));
             }
         } else {
-            if(listOfPlayers.get(0).getInGame() == true){
+            if(listOfPlayers.get(0).getInGame()){
                 setCurrentPlayer(listOfPlayers.get(0));
             } else {
                 chooseNextPlayer(listOfPlayers.get(0));
@@ -198,8 +191,7 @@ public class GameManager {
 
     public int chooseRandomActionCard(){
         Random random = new Random();
-        int index = random.nextInt(listOfActionCards.size());
-        return index;
+        return random.nextInt(listOfActionCards.size());
     }
 
     public ActionCard.ActionType checkActionCardType(int indexActionCardList) {
@@ -208,11 +200,7 @@ public class GameManager {
     }
 
     public boolean checkIfNegativeBalance(){
-        if(currentPlayer.getBalance() < 0){
-            return true;
-        } else {
-            return false;
-        }
+        return currentPlayer.getBalance() < 0;
     }
 
     public void disablePlayerFromGame(Player player){
@@ -223,10 +211,10 @@ public class GameManager {
         boolean oneRemaining = false;
         int count = 0;
         for(Player player : listOfPlayers){
-            if(player.getInGame() == true){
+            if(player.getInGame()){
                 count++;
             }
         }
-        return oneRemaining = count == 1 ? true : false;
+        return oneRemaining = count == 1;
     }
 }
