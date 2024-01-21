@@ -129,9 +129,23 @@ public class GameBoardController implements Initializable {
             setAllPaneLabelsTextAreas(name4, player4Position, total4, goop4, in4, out4, own4, events4, player);
         }
     }
+    private ImageView getDots(String variableName) {
+        try {
+            java.lang.reflect.Field dot = this.getClass().getDeclaredField(variableName);
+            return (ImageView) dot.get(this);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace(); // Handle or log the exception as needed
+            return null;
+        }
+    }
 
     public void initializeDiceDots() {
-        diceDots.add(d1);
+
+        for (int i = 1; i <= 18; i++) {
+            diceDots.add(getDots("d" + i));
+        }
+
+       /* diceDots.add(d1);
         diceDots.add(d2);
         diceDots.add(d3);
         diceDots.add(d4);
@@ -148,52 +162,23 @@ public class GameBoardController implements Initializable {
         diceDots.add(d15);
         diceDots.add(d16);
         diceDots.add(d17);
-        diceDots.add(d18);
+        diceDots.add(d18);*/
+    }
+
+    private VBox getVBox(String variableName) {
+        try {
+            java.lang.reflect.Field box = this.getClass().getDeclaredField(variableName);
+            return (VBox) box.get(this);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace(); // Handle or log the exception as needed
+            return null;
+        }
     }
 
     public void initializeFieldBoxes() {
-        fieldBoxes.add(b1);
-        fieldBoxes.add(b2);
-        fieldBoxes.add(b3);
-        fieldBoxes.add(b4);
-        fieldBoxes.add(b5);
-        fieldBoxes.add(b6);
-        fieldBoxes.add(b7);
-        fieldBoxes.add(b8);
-        fieldBoxes.add(b9);
-        fieldBoxes.add(b10);
-        fieldBoxes.add(b11);
-        fieldBoxes.add(b12);
-        fieldBoxes.add(b13);
-        fieldBoxes.add(b14);
-        fieldBoxes.add(b15);
-        fieldBoxes.add(b16);
-        fieldBoxes.add(b17);
-        fieldBoxes.add(b18);
-        fieldBoxes.add(b19);
-        fieldBoxes.add(b20);
-        fieldBoxes.add(b21);
-        fieldBoxes.add(b22);
-        fieldBoxes.add(b23);
-        fieldBoxes.add(b24);
-        fieldBoxes.add(b25);
-        fieldBoxes.add(b26);
-        fieldBoxes.add(b27);
-        fieldBoxes.add(b28);
-        fieldBoxes.add(b29);
-        fieldBoxes.add(b30);
-        fieldBoxes.add(b31);
-        fieldBoxes.add(b32);
-        fieldBoxes.add(b33);
-        fieldBoxes.add(b34);
-        fieldBoxes.add(b35);
-        fieldBoxes.add(b36);
-        fieldBoxes.add(b37);
-        fieldBoxes.add(b38);
-        fieldBoxes.add(b39);
-        fieldBoxes.add(b40);
-        fieldBoxes.add(b41);
-        fieldBoxes.add(b42);
+        for (int i = 1; i <= 42; i++) {
+            fieldBoxes.add(getVBox("b" + i));
+        }
     }
 
     public void setFieldHover(String fieldId, String statement) {
