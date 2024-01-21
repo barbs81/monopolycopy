@@ -77,7 +77,7 @@
     "type": "MONEY"
   },
   {
-    "name": "BECOME A POLITICIAN",
+    "name": "POLITICIAN",
     "message": "You managed to win a local election and are Vienna's mayor. Extra income!",
     "money": 50,
     "moveDirection": 0,
@@ -136,7 +136,7 @@
     "name": "MONOPOLY TOUR",
     "message": "Make a full round on the board game.",
     "money": 0,
-    "moveDirection": 42,
+    "moveDirection": 41,
     "type": "MOVE"
   },
   {

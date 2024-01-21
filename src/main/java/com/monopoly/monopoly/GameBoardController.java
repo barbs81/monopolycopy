@@ -75,12 +75,10 @@ public class GameBoardController implements Initializable {
         for (Field field : player.getOwn()) {
             own.appendText(field.getName() + "\n");
         }
-        own.appendText("Test Property"); //TODO: Remove
         events.clear();
         for (ActionCard actionCard : player.getEvents()) {
             events.appendText(actionCard.getName() + "\n");
         }
-        events.appendText("Test Event"); //TODO: Remove
     }
 
     public void showPlayersData() {
@@ -355,7 +353,8 @@ public class GameBoardController implements Initializable {
             alert = new Alert(Alert.AlertType.INFORMATION);
         }
         alert.setTitle("message");
-        alert.setHeaderText(listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getName());
+        alert.setHeaderText("");
+        //alert.setHeaderText(listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getName());
         alert.setGraphic(iconImageView);
         iconImageView.setFitWidth(48);
         iconImageView.setFitHeight(48);
@@ -386,21 +385,13 @@ public class GameBoardController implements Initializable {
 
     public void printWinnerStatistics(boolean oneLeft){
         if(oneLeft == true){
-            List <String> properties = new ArrayList<>();
-            List <String> events = new ArrayList<>();
-            Player winner = listOfPlayers.getFirst();
-            String name = winner.getName();
-            int balance = winner.getBalance();
-            int out = winner.getTotalPayments();
-            int in = winner.getTotalIncome();
-            for(ActionCard actionCard : winner.getEvents()){
-                events.add(actionCard.getName());
+            String name = "";
+            for(Player player : listOfPlayers) {
+                if (player.getInGame() == true) {
+                    name = player.getName();
+                }
             }
-            for(Field field : winner.getOwn()){
-                properties.add(field.getName());
-            }
-            String message = name + " You are the Winner! " + "You own: " + properties + "." + "You have: $" + balance + ". You earned: " + in + ". You spent: " + out + ". Your life experiences include: " + events + "." + " Thanks for playing. Goodbye!";
-            showAlert(Alert.AlertType.INFORMATION, message);
+            showAlert(Alert.AlertType.INFORMATION, name + " you are the Winner!");
             closeScene();
         }
     }
@@ -416,7 +407,7 @@ public class GameBoardController implements Initializable {
         boolean disablePlayer, oneRemaining;
         switch(type){
             case MONEY:
-                showAlert(Alert.AlertType.INFORMATION, message + "That is $ : " + money + ".");
+                showAlert(Alert.AlertType.INFORMATION, message + " That is $ : " + money + ".");
                 gameManager.getCurrentPlayer().deposit(money);
                 gameManager.updatePlayerEvents(index, gameManager.getCurrentPlayer());
                 showPlayersData();
@@ -428,14 +419,12 @@ public class GameBoardController implements Initializable {
                     oneRemaining = gameManager.printStatsIfOneRemaining();
                     printWinnerStatistics(oneRemaining);
                 }
-                System.out.println("You landed on money"); //TODO: Remove
                 break;
             case BACK_TO_START:
                 showAlert(Alert.AlertType.INFORMATION, message);
                 gameManager.moveToStart();
                 gameManager.updatePlayerEvents(index, gameManager.getCurrentPlayer());
                 showPlayersData();
-                System.out.println("You landed on back to start"); //TODO: Remove
                 break;
             case MOVE:
                 showAlert(Alert.AlertType.INFORMATION, message + "That is : " + moveDirection + ".");
@@ -443,7 +432,6 @@ public class GameBoardController implements Initializable {
                 gameManager.updatePlayerEvents(index, gameManager.getCurrentPlayer());
                 showPlayersData();
                 //TODO: Depending on where the player moves, another action might have to be taken
-                System.out.println("You landed on move"); //TODO: Remove
                 break;
             case GET_OUT_OF_JAIL:
                 if(gameManager.getCurrentPlayer().getHasOutOfJailCard() == true){
@@ -454,7 +442,6 @@ public class GameBoardController implements Initializable {
                     gameManager.updatePlayerEvents(index, gameManager.getCurrentPlayer());
                     showPlayersData();
                 }
-                System.out.println("You landed on get out of jail"); //TODO: Remove
                 break;
             default:
                 break;
@@ -467,7 +454,7 @@ public class GameBoardController implements Initializable {
         ActionCard.ActionType actionType;
         switch(type){
             case PROPERTY:
-                canBuy = gameManager.playerActionDistrictStationFieldCheckIfBuyable(gameManager.getCurrentPlayer());
+                canBuy = gameManager.playerActionPropertyFieldCheckIfBuyable(gameManager.getCurrentPlayer());
                 if(canBuy == 0){
                     Player owner = listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getOwner();
                     int rent = listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getRent();
@@ -481,7 +468,6 @@ public class GameBoardController implements Initializable {
                         gameManager.disablePlayerFromGame(gameManager.getCurrentPlayer());
                         oneRemaining = gameManager.printStatsIfOneRemaining();
                         printWinnerStatistics(oneRemaining);
-
                     }
                 } else if (canBuy == 1){
                     wants = getConfirmation("This property is not owned by anyone. Do you want to buy this property?");
@@ -514,24 +500,39 @@ public class GameBoardController implements Initializable {
                 showPlayersData();
                 break;
             case PRISON:
-                canLeaveJail = gameManager.getCurrentPlayer().getHasOutOfJailCard();
-                if(canLeaveJail == true){
-                    wants = getConfirmation("You have a get out of jail free card, do you want to use it? If not, you have to pay $25 to get out!");
-                    if(wants == true){
-                        gameManager.getCurrentPlayer().setHasOutOfJailCard(false);
+                if(gameManager.getCurrentPlayer().getPreviousPositionIndex() == 31){
+                    canLeaveJail = gameManager.getCurrentPlayer().getHasOutOfJailCard();
+                    if(canLeaveJail == true){
+                        wants = getConfirmation("You have a get out of jail free card, do you want to use it? If not, you have to pay $25 to get out!");
+                        if(wants == true){
+                            gameManager.getCurrentPlayer().setHasOutOfJailCard(false);
+                        } else {
+                            showAlert(Alert.AlertType.INFORMATION, "You're not using a get-out-of-jail card -> $25 will be removed from your bank account.");
+                            gameManager.getCurrentPlayer().withdraw(25);
+                        }
                     } else {
-                        showAlert(Alert.AlertType.INFORMATION, "$25 will be removed from your bank account.");
+                        showAlert(Alert.AlertType.INFORMATION, "You're not using a get-out-of-jail card -> $25 will be removed from your bank account.");
                         gameManager.getCurrentPlayer().withdraw(25);
                     }
                     gameManager.moveNumberOfFields(-1);
                     showPlayersData();
-                    showPlayersOnCurrentField();
+                    //Disable player if balance is now negative
+                    disablePlayer = gameManager.checkIfNegativeBalance();
+                    if(disablePlayer == true){
+                        showAlert(Alert.AlertType.WARNING, "Your balance is negative: " + gameManager.getCurrentPlayer().getBalance() + " You lost. Goodbye!");
+                        gameManager.disablePlayerFromGame(gameManager.getCurrentPlayer());
+                        oneRemaining = gameManager.printStatsIfOneRemaining();
+                        printWinnerStatistics(oneRemaining);
+                    }
+                } else {
+                    showAlert(Alert.AlertType.INFORMATION,"You're in prison, but just for a short visit.");
+                    showPlayersData();
                 }
                 break;
             case GO_TO_PRISON:
                 showAlert(Alert.AlertType.INFORMATION, "You've been arrested and are going to jail.");
                 gameManager.moveToPrison(gameManager.getCurrentPlayer());
-                showPlayersOnCurrentField();
+                showPlayersData();
                 playerActionAlertsBasedOnField(Field.FieldType.PRISON);
                 break;
             default:
@@ -561,16 +562,17 @@ public class GameBoardController implements Initializable {
                 button.setDisable(false);
 
                 //TODO:
-                //2.5 Going to prison field -> needs bug fixing MEHMET
-                //5. Player gets $200 each time they finish a round MEHMET/LEON?
-                //6. GUI -> need a better way to show players on field -> two players on one field at a time (LEON)
-                //7. Test the game -> make corrections (improve code if have time) (MEHMET)
-                //8. GUI changes -> if we have time to make it look better
-                //10. Descriptions of districts in the fields.json file, if we have time
-                //11. Go through TODO:s in code and remove print test functions + unused variables
-                //12. Error: Correct the umlauts when data brought in from Json file
-                //13. Buying and showing houses on the owner's field -> increase in rent for visitor -> LEON?
-                //14. Test the alerts -> some of them are not custom to the situation (e.g., the current field remains in header)
+                //0. Prison action should be fixed now, but check that go-to-jail -> prison works
+                //1. Fix player move causing array out of bounds (MEHMET)
+                //2. Player gets $200 each time they finish a round MEHMET/LEON
+                //3. GUI -> need a better way to show players on field, if have time (LEON)
+                //4. Test the game -> make corrections (improve code if have time) (MEHMET)
+                //5. GUI changes -> if we have time to make it look better
+                //6. Descriptions of districts in the fields.json file, if we have time
+                //7. Go through TODO:s in code and remove print test functions + unused variables
+                //8. Error: Correct the umlauts when data brought in from Json file
+                //9. Buying and showing houses on the owner's field -> increase in rent for visitor -> LEON?
+                //10. Test the alerts -> some of them are not custom to the situation (e.g., the current field remains in header)
             }
         });
     }

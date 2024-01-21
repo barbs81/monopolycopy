@@ -132,7 +132,7 @@ public class GameManager {
         return type;
     }
 
-    public int playerActionDistrictStationFieldCheckIfBuyable(Player currentPlayer){
+    public int playerActionPropertyFieldCheckIfBuyable(Player currentPlayer){
         Player owner = listOfFields.get(currentPlayer.getCurrentPositionIndex()).getOwner();
         int canBuyField;
         if(owner == null){
@@ -218,6 +218,7 @@ public class GameManager {
     public void disablePlayerFromGame(Player player){
         player.setInGame(false);
     }
+
     public boolean printStatsIfOneRemaining(){
         boolean oneRemaining = false;
         int count = 0;
