@@ -18,6 +18,7 @@ public class Player {
     private int roundNumber;
     private LinkedList <ActionCard> events;
     private LinkedList <Field> own;
+    private boolean inGame;
 
     public Player(String id, String name, String color) {
         this.id = id;
@@ -32,6 +33,7 @@ public class Player {
         this.roundNumber = 1;
         this.events = new LinkedList<>();
         this.own = new LinkedList<>();
+        this.inGame = true;
     }
 
     //Setters and getters
@@ -63,6 +65,8 @@ public class Player {
     public LinkedList <ActionCard> getEvents(){ return this.events; }
     public void setOwn(LinkedList<Field> events){this.own = own; }
     public LinkedList <Field> getOwn(){ return this.own; }
+    public void setInGame(boolean inGame){ this.inGame = inGame; }
+    public boolean getInGame(){ return this.inGame; }
 
     //Class functions
 

@@ -82,7 +82,7 @@
   },
   {
     "id": "b10",
-    "name": "Chance",
+    "name": "Event 1",
     "price": 0,
     "rent": 0,
     "prices": [],
@@ -91,12 +91,12 @@
   },
   {
     "id": "b11",
-    "name": "Go to Jail",
+    "name": "Prison",
     "price": 0,
     "rent": 0,
     "prices": [],
-    "type": "GO_TO_PRISON",
-    "description": "Oopsie, looks like you've done something bad."
+    "type": "PRISON",
+    "description": "You either have done something bad and you deserve this, or you're completely innocent and life is unfair.",
   },
   {
     "id": "b12",
@@ -127,7 +127,7 @@
   },
   {
     "id": "b15",
-    "name": "Chance",
+    "name": "Event 2",
     "price": 0,
     "rent": 0,
     "prices": [],
@@ -145,21 +145,21 @@
   },
   {
     "id": "b17",
-    "name": "Landstrasse",
-    "price": 280,
-    "rent": 30,
-    "prices": [25, 120, 360, 850, 1025, 1200],
-    "type": "PROPERTY",
-    "description": "TODO"
-  },
-  {
-    "id": "b18",
     "name": "Praterstern",
     "price": 200,
     "rent": 20,
     "prices": [],
     "type": "PROPERTY",
-    "description": "When you purchase this train station, you also get a free t-shirt."
+    "description": "When you purchase this train station, you also get a free t-shirt.",
+  },
+  {
+    "id": "b18",
+    "name": "Landstraße",
+    "price": 280,
+    "rent": 30,
+    "prices": [25, 120, 360, 850, 1025, 1200],
+    "type": "PROPERTY",
+    "description": "TODO"
   },
   {
     "id": "b19",
@@ -172,7 +172,7 @@
   },
   {
     "id": "b20",
-    "name": "Klima bonus",
+    "name": "Klima bonus 1",
     "price": 0,
     "rent": 0,
     "prices": [],
@@ -190,12 +190,12 @@
   },
   {
     "id": "b22",
-    "name": "Jail",
+    "name": "Free parking",
     "price": 0,
     "rent": 0,
     "prices": [],
-    "type": "PRISON",
-    "description": "You either have done something bad and you deserve this, or you're completely innocent and life is unfair."
+    "type": "FREE_PARKING",
+    "description": "Lucky you, it's not easy to find free parking these days.",
   },
   {
     "id": "b23",
@@ -226,7 +226,7 @@
   },
   {
     "id": "b26",
-    "name": "Waehring",
+    "name": "Währing",
     "price": 40,
     "rent": 1,
     "prices": [1, 5, 20, 140, 315, 490],
@@ -244,7 +244,7 @@
   },
   {
     "id": "b28",
-    "name": "Rudolfsheim-Fuenfhaus",
+    "name": "Rudolfsheim",
     "price": 70,
     "rent": 4,
     "prices": [3, 15, 50, 200, 375, 550],
@@ -253,7 +253,7 @@
   },
   {
     "id": "b29",
-    "name": "Chance",
+    "name": "Event 3",
     "price": 0,
     "rent": 0,
     "prices": [],
@@ -280,16 +280,16 @@
   },
   {
     "id": "b32",
-    "name": "Free parking",
+    "name": "Go to Jail",
     "price": 0,
     "rent": 0,
     "prices": [],
-    "type": "FREE_PARKING",
-    "description": "Lucky you, it's not easy to find free parking these days."
+    "type": "GO_TO_PRISON",
+    "description": "Oopsie, looks like you've done something bad."
   },
   {
     "id": "b33",
-    "name": "Klima bonus",
+    "name": "Klima bonus 2",
     "price": 0,
     "rent": 0,
     "prices": [],
@@ -298,7 +298,7 @@
   },
   {
     "id": "b34",
-    "name": "Chance",
+    "name": "Event 4",
     "price": 0,
     "rent": 0,
     "prices": [],
@@ -334,7 +334,7 @@
   },
   {
     "id": "b38",
-    "name": "Chance",
+    "name": "Event 5",
     "price": 0,
     "rent": 0,
     "prices": [],
@@ -343,7 +343,7 @@
   },
   {
     "id": "b39",
-    "name": "Doebling",
+    "name": "Döbling",
     "price": 30,
     "rent": 1,
     "prices": [1, 5, 20, 120, 295, 470],
@@ -370,7 +370,7 @@
   },
   {
     "id": "b42",
-    "name": "Chance",
+    "name": "Event 6",
     "price": 0,
     "rent": 0,
     "prices": [],

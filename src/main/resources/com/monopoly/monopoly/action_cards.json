@@ -8,7 +8,7 @@
   },
   {
     "name": "IMMO MOGUL",
-    "message": "Du wurdest zum Immobilienmogul ernannt. Erhalte Mieten im Wert von",
+    "message": "You became a property mogul and get some extra money!",
     "money": 50,
     "moveDirection": 0,
     "type": "MONEY"
@@ -77,7 +77,7 @@
     "type": "MONEY"
   },
   {
-    "name": "BECOME A POLITICIAN",
+    "name": "POLITICIAN",
     "message": "You managed to win a local election and are Vienna's mayor. Extra income!",
     "money": 50,
     "moveDirection": 0,
@@ -136,12 +136,12 @@
     "name": "MONOPOLY TOUR",
     "message": "Make a full round on the board game.",
     "money": 0,
-    "moveDirection": 42,
+    "moveDirection": 41,
     "type": "MOVE"
   },
   {
     "name": "LEAVE JAIL",
-    "message": "You have a card that lets you leave jail for free.",
+    "message": "You now have a card that lets you leave jail for free.",
     "money": 0,
     "moveDirection": 0,
     "type": "GET_OUT_OF_JAIL"

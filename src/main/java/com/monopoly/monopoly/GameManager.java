@@ -5,7 +5,7 @@ import java.util.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-
+//TODO: We could probably just have one Random random = new Random() for the whole class
 public class GameManager {
     static LinkedList<Field> listOfFields = new LinkedList<>();
     static LinkedList<Player> listOfPlayers = new LinkedList<>();
@@ -115,15 +115,14 @@ public class GameManager {
 
     public void movePlayer(Player player, int [] diceResult){
         int numberOfMoves = diceResult[0] + diceResult[1];
+        System.out.println("Player is: " + player.getName()); //TODO: Remove
         int indexCurrentField = player.getCurrentPositionIndex();
-        int fieldsSize = listOfFields.size() - 1;
+        System.out.println("indexCurrentField: " + indexCurrentField); //TODO: Remove
         int indexTargetField = indexCurrentField + numberOfMoves;
-
-        indexTargetField = indexTargetField > fieldsSize ? indexTargetField % fieldsSize : indexTargetField ;
-
+        System.out.println("indexTargetField: " + indexTargetField); //TODO: Remove
         player.setPreviousPositionIndex(indexCurrentField);
-
         player.setCurrentPositionIndex(indexTargetField);
+        //TODO: Set round number
     }
 
     public Field.FieldType checkCurrentPlayerFieldLocationType(Player currentPlayer){
@@ -133,13 +132,12 @@ public class GameManager {
         return type;
     }
 
-    public int playerActionDistrictStationFieldCheckIfBuyable(Player currentPlayer){
-        Field currentField = listOfFields.get(currentPlayer.getCurrentPositionIndex());
-        Player owner = currentField.getOwner();
+    public int playerActionPropertyFieldCheckIfBuyable(Player currentPlayer){
+        Player owner = listOfFields.get(currentPlayer.getCurrentPositionIndex()).getOwner();
         int canBuyField;
         if(owner == null){
             canBuyField = 1;
-        } else if (owner.getName().equals(currentPlayer.getName())) {
+        } else if (owner != null && owner.getName() == currentPlayer.getName()) {
             canBuyField = 2;
         } else {
             canBuyField = 0;
@@ -147,13 +145,15 @@ public class GameManager {
         return canBuyField;
     }
 
+    public void updatePlayerEvents(int index, Player player){
+        player.getEvents().add(listOfActionCards.get(index));
+    }
+
     public void buyProperty(Player buyer){
         int amount = listOfFields.get(buyer.getCurrentPositionIndex()).getPrice();
-
-            buyer.withdraw(amount);
-            buyer.getOwn().add(listOfFields.get(buyer.getCurrentPositionIndex()));
-            listOfFields.get(buyer.getCurrentPositionIndex()).setOwner(buyer);
-
+        buyer.withdraw(amount);
+        buyer.getOwn().add(listOfFields.get(buyer.getCurrentPositionIndex()));
+        listOfFields.get(buyer.getCurrentPositionIndex()).setOwner(buyer);
     }
 
     public void payAndGetRent(Player payer, Player receiver){
@@ -166,20 +166,67 @@ public class GameManager {
         int temporary = currentPlayer.getCurrentPositionIndex();
         currentPlayer.setCurrentPositionIndex(temporary  + numberOfFields);
         currentPlayer.setPreviousPositionIndex(temporary);
+        //TODO: Set Round number if changes
+    }
+
+    public void moveToStart(){
+        int currentIndex = currentPlayer.getCurrentPositionIndex();
+        moveNumberOfFields(currentIndex * -1);
+        currentPlayer.setRoundNumber(currentPlayer.getRoundNumber() + 1);
     }
 
     public void moveToPrison(Player player){
-        moveNumberOfFields(11);
+        moveNumberOfFields(-21);
     }
 
-public void chooseNextPlayer(Player currentPlayer){
+    public void chooseNextPlayer(Player currentPlayer){
         int index = listOfPlayers.indexOf(currentPlayer);
-        if(index < listOfPlayers.size() - 1){
-            setCurrentPlayer(listOfPlayers.get(index + 1));
+        if(index < listOfPlayers.size() -1){
+            if(listOfPlayers.get(index + 1).getInGame() == true){
+                setCurrentPlayer(listOfPlayers.get(index + 1));
+            } else {
+                chooseNextPlayer(listOfPlayers.get(index + 1));
+            }
         } else {
-            setCurrentPlayer(listOfPlayers.get(0));
+            if(listOfPlayers.get(0).getInGame() == true){
+                setCurrentPlayer(listOfPlayers.get(0));
+            } else {
+                chooseNextPlayer(listOfPlayers.get(0));
+            }
         }
     }
 
+    public int chooseRandomActionCard(){
+        Random random = new Random();
+        int index = random.nextInt(listOfActionCards.size());
+        return index;
+    }
 
+    public ActionCard.ActionType checkActionCardType(int indexActionCardList) {
+        ActionCard.ActionType type = listOfActionCards.get(indexActionCardList).getActionType();
+        return type;
+    }
+
+    public boolean checkIfNegativeBalance(){
+        if(currentPlayer.getBalance() < 0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void disablePlayerFromGame(Player player){
+        player.setInGame(false);
+    }
+
+    public boolean printStatsIfOneRemaining(){
+        boolean oneRemaining = false;
+        int count = 0;
+        for(Player player : listOfPlayers){
+            if(player.getInGame() == true){
+                count++;
+            }
+        }
+        return oneRemaining = count == 1 ? true : false;
+    }
 }
