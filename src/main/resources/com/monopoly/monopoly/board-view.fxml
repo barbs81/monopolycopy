@@ -451,7 +451,7 @@
                </font>
             </Label>
          </children></VBox>
-        <Pane fx:id="pane1" layoutX="660.0" layoutY="15.0" prefHeight="169.0" prefWidth="276.0" style="-fx-background-color: #F08080;">
+        <Pane fx:id="pane1" layoutX="660.0" layoutY="15.0" prefHeight="169.0" prefWidth="276.0" style="-fx-background-color: #F08080;" visible="false">
             <children>
                 <Label fx:id="name1" alignment="CENTER" layoutX="13.0" layoutY="7.0" text="Player name">
                     <font>
@@ -509,7 +509,7 @@
             </Label>
             </children>
         </Pane>
-        <Pane fx:id="pane2" layoutX="660.0" layoutY="191.0" prefHeight="169.0" prefWidth="276.0" style="-fx-background-color: #F0E68C;">
+        <Pane fx:id="pane2" layoutX="660.0" layoutY="191.0" prefHeight="169.0" prefWidth="276.0" style="-fx-background-color: #F0E68C;" visible="false">
             <children>
                 <Label fx:id="name2" alignment="CENTER" layoutX="13.0" layoutY="7.0" text="Player name">
                     <font>
@@ -567,7 +567,7 @@
             </Label>
             </children>
         </Pane>
-        <Pane fx:id="pane3" layoutX="660.0" layoutY="367.0" prefHeight="169.0" prefWidth="276.0" style="-fx-background-color: #8FBC8F;">
+        <Pane fx:id="pane3" layoutX="660.0" layoutY="367.0" prefHeight="169.0" prefWidth="276.0" style="-fx-background-color: #8FBC8F;" visible="false">
             <children>
                 <Label fx:id="name3" alignment="CENTER" layoutX="13.0" layoutY="7.0" text="Player name">
                     <font>
@@ -625,7 +625,7 @@
             </Label>
             </children>
         </Pane>
-        <Pane fx:id="pane4" layoutX="660.0" layoutY="542.0" prefHeight="169.0" prefWidth="276.0" style="-fx-background-color: #ADD8E6;">
+        <Pane fx:id="pane4" layoutX="660.0" layoutY="542.0" prefHeight="169.0" prefWidth="276.0" style="-fx-background-color: #ADD8E6;" visible="false">
             <children>
                 <Label fx:id="name4" alignment="CENTER" layoutX="13.0" layoutY="7.0" text="Player name">
                     <font>

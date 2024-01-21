@@ -562,6 +562,7 @@ public class GameBoardController implements Initializable {
                 button.setDisable(false);
 
                 //TODO:
+                //SEND NEW REPOSITORY LINK TO HERR STROMMER
                 //0. Prison action should be fixed now, but check that go-to-jail -> prison works
                 //1. Fix player move causing array out of bounds (MEHMET)
                 //2. Player gets $200 each time they finish a round MEHMET/LEON
@@ -572,7 +573,6 @@ public class GameBoardController implements Initializable {
                 //7. Go through TODO:s in code and remove print test functions + unused variables
                 //8. Error: Correct the umlauts when data brought in from Json file
                 //9. Buying and showing houses on the owner's field -> increase in rent for visitor -> LEON?
-                //10. Test the alerts -> some of them are not custom to the situation (e.g., the current field remains in header)
             }
         });
     }
