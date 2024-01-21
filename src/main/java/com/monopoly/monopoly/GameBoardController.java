@@ -140,29 +140,9 @@ public class GameBoardController implements Initializable {
     }
 
     public void initializeDiceDots() {
-
         for (int i = 1; i <= 18; i++) {
             diceDots.add(getDots("d" + i));
         }
-
-       /* diceDots.add(d1);
-        diceDots.add(d2);
-        diceDots.add(d3);
-        diceDots.add(d4);
-        diceDots.add(d5);
-        diceDots.add(d6);
-        diceDots.add(d7);
-        diceDots.add(d8);
-        diceDots.add(d9);
-        diceDots.add(d10);
-        diceDots.add(d11);
-        diceDots.add(d12);
-        diceDots.add(d13);
-        diceDots.add(d14);
-        diceDots.add(d15);
-        diceDots.add(d16);
-        diceDots.add(d17);
-        diceDots.add(d18);*/
     }
 
     private VBox getVBox(String variableName) {
@@ -328,7 +308,7 @@ public class GameBoardController implements Initializable {
         fieldBoxes.get(index).setStyle("-fx-background-color:" + color + ";");
     }
 
-    public void showAlert(Alert.AlertType type, String contentText) {
+    public void showAlert(Alert.AlertType type, String title, String contentText, String playerName) {
         Alert alert;
         Image icon = new Image(getClass().getResourceAsStream("message.png"));
         ImageView iconImageView = new ImageView(icon);
@@ -337,9 +317,8 @@ public class GameBoardController implements Initializable {
         } else {
             alert = new Alert(Alert.AlertType.INFORMATION);
         }
-        alert.setTitle("message");
-        alert.setHeaderText("");
-        //alert.setHeaderText(listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getName());
+        alert.setTitle(title);
+        alert.setHeaderText(playerName);
         alert.setGraphic(iconImageView);
         iconImageView.setFitWidth(48);
         iconImageView.setFitHeight(48);
@@ -347,12 +326,13 @@ public class GameBoardController implements Initializable {
         alert.showAndWait();
     }
 
-    public boolean getConfirmation(String contentText){
+    public boolean getConfirmation(String title, String contentText, String playerName){
         boolean confirmed = false;
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         Image icon = new Image(getClass().getResourceAsStream("questionMark.png"));
         ImageView iconImageView = new ImageView(icon);
-        alert.setTitle("confirm");
+        alert.setTitle(title);
+        alert.setHeaderText(playerName);
         String propertyName = listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getName();
         int price = listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getPrice();
         int rent = listOfFields.get(gameManager.getCurrentPlayer().getCurrentPositionIndex()).getRent();
@@ -376,7 +356,7 @@ public class GameBoardController implements Initializable {
                     name = player.getName();
                 }
             }
-            showAlert(Alert.AlertType.INFORMATION, name + " you are the Winner!");
+            showAlert(Alert.AlertType.INFORMATION, "GAME OVER","", name + " is the winner!");
             closeScene();
         }
     }
@@ -395,37 +375,38 @@ public class GameBoardController implements Initializable {
 
         switch(type){
             case MONEY:
-                showAlert(Alert.AlertType.INFORMATION, message + " That is $ : " + money + ".");
+                showAlert(Alert.AlertType.INFORMATION, "Money, money, money", message + " That is " + money + "$.", currentPlayer.getName());
                 currentPlayer.deposit(money);
                 gameManager.updatePlayerEvents(index, currentPlayer);
                 showPlayersData();
                 //Disable player if balance is now negative
                 disablePlayer = gameManager.checkIfNegativeBalance();
                 if(disablePlayer){
-                    showAlert(Alert.AlertType.WARNING, "Your balance is negative: " + currentPlayer.getBalance() + " You lost. Goodbye!");
+                    showAlert(Alert.AlertType.WARNING, "er macht den SIGNA", "Your balance is negative, therefor you lose!", currentPlayer.getName());
                     gameManager.disablePlayerFromGame(currentPlayer);
                     oneRemaining = gameManager.printStatsIfOneRemaining();
                     printWinnerStatistics(oneRemaining);
                 }
                 break;
             case BACK_TO_START:
-                showAlert(Alert.AlertType.INFORMATION, message);
+                showAlert(Alert.AlertType.INFORMATION, "Back to the roots!", message, currentPlayer.getName());
                 gameManager.moveToStart();
                 gameManager.updatePlayerEvents(index, currentPlayer);
                 showPlayersData();
                 break;
             case MOVE:
-                showAlert(Alert.AlertType.INFORMATION, message + "That is : " + moveDirection + ".");
-                gameManager.moveNumberOfFields(moveDirection);
+                showAlert(Alert.AlertType.INFORMATION, "bewegung!", message + "That is : " + moveDirection + ".", currentPlayer.getName());
+                gameManager.movePlayer(currentPlayer, moveDirection);
+                //gameManager.moveNumberOfFields(moveDirection);
                 gameManager.updatePlayerEvents(index, currentPlayer);
                 showPlayersData();
                 //TODO: Depending on where the player moves, another action might have to be taken
                 break;
             case GET_OUT_OF_JAIL:
                 if(currentPlayer.getHasOutOfJailCard()){
-                    showAlert(Alert.AlertType.INFORMATION, "You already have a 'Get-out-of-jail-free card");
+                    showAlert(Alert.AlertType.INFORMATION, "double trouble", "You already have a 'Get-out-of-jail-free card", currentPlayer.getName());
                 } else {
-                    showAlert(Alert.AlertType.INFORMATION, message);
+                    showAlert(Alert.AlertType.INFORMATION, "bribing the warden", message, currentPlayer.getName());
                     currentPlayer.setHasOutOfJailCard(true);
                     gameManager.updatePlayerEvents(index, currentPlayer);
                     showPlayersData();
@@ -449,19 +430,18 @@ public class GameBoardController implements Initializable {
                 if(canBuy == 0){
                     Player owner = listOfFields.get(currentPlayer.getCurrentPositionIndex()).getOwner();
                     int rent = listOfFields.get(currentPlayer.getCurrentPositionIndex()).getRent();
-                    showAlert(Alert.AlertType.INFORMATION, "You landed on " + owner.getName() + "'s property and will pay rent: " + rent + ".");
+                    showAlert(Alert.AlertType.INFORMATION, "payday", "You landed on " + owner.getName() + "'s property and will pay rent: " + rent + ".", currentPlayer.getName());
                     gameManager.payAndGetRent(currentPlayer, owner);
                     showPlayersData();
                     //Disable player if balance is now negative
-                    disablePlayer = gameManager.checkIfNegativeBalance();
-                    if(disablePlayer){
-                        showAlert(Alert.AlertType.WARNING, "Your balance is negative: " + currentPlayer.getBalance() + " You lost. Goodbye!");
+                    if(gameManager.checkIfNegativeBalance()){
+                        showAlert(Alert.AlertType.WARNING, "GAME OVER", "You are too poor to pay the rent, you lose!", currentPlayer.getName());
                         gameManager.disablePlayerFromGame(currentPlayer);
                         oneRemaining = gameManager.printStatsIfOneRemaining();
                         printWinnerStatistics(oneRemaining);
                     }
                 } else if (canBuy == 1){
-                    wants = getConfirmation("This property is not owned by anyone. Do you want to buy this property?");
+                    wants = getConfirmation("Buy Property?", "This property is not owned by anyone. Do you want to buy this property?", currentPlayer.getName());
                     if(wants){
                         gameManager.buyProperty(currentPlayer);
                         changeFieldColorOwnerColor(currentPlayer);
@@ -471,13 +451,13 @@ public class GameBoardController implements Initializable {
                     //Disable player if balance is now negative
                     disablePlayer = gameManager.checkIfNegativeBalance();
                     if(disablePlayer){
-                        showAlert(Alert.AlertType.WARNING, "Your balance is negative: " + currentPlayer.getBalance() + " You lost. Goodbye!");
+                        showAlert(Alert.AlertType.WARNING, "SIGNA MOVE", "You tried to buy a property but don't have the money!\r\nYou lost Rene, Goodbye!" , currentPlayer.getName());
                         gameManager.disablePlayerFromGame(currentPlayer);
                         oneRemaining = gameManager.printStatsIfOneRemaining();
                         printWinnerStatistics(oneRemaining);
                     }
                 } else if (canBuy == 2){
-                    showAlert(Alert.AlertType.INFORMATION, "You already own this property.");
+                    showAlert(Alert.AlertType.INFORMATION, "no building permit", "You already own this property!", currentPlayer.getName());
                 }
                 break;
             case EVENT:
@@ -486,7 +466,7 @@ public class GameBoardController implements Initializable {
                 playerActionAlertsBasedOnActionCard(index, actionType);
                 break;
             case KLIMA_BONUS:
-                showAlert(Alert.AlertType.INFORMATION, "You qualify for the Klima Bonus. You're $225 richer.");
+                showAlert(Alert.AlertType.INFORMATION, "KLIMA Bonus", "Why stop inflation, when you can make it worse? you get $225.", currentPlayer.getName());
                 currentPlayer.deposit(225);
                 showPlayersData();
                 break;
@@ -494,35 +474,35 @@ public class GameBoardController implements Initializable {
                 if(currentPlayer.getPreviousPositionIndex() == 31){
                     canLeaveJail = currentPlayer.getHasOutOfJailCard();
                     if(canLeaveJail){
-                        wants = getConfirmation("You have a get out of jail free card, do you want to use it? If not, you have to pay $25 to get out!");
+                        wants = getConfirmation("Wer zahlt schafft an", "You have a get out of jail free card, do you want to use it?\r\n If not, you have to pay $25 bail to get out!", currentPlayer.getName());
                         if(wants){
                             currentPlayer.setHasOutOfJailCard(false);
+                            currentPlayer.setCurrentPositionIndex(31);
                         } else {
-                            showAlert(Alert.AlertType.INFORMATION, "You're not using a get-out-of-jail card -> $25 will be removed from your bank account.");
+                            showAlert(Alert.AlertType.INFORMATION, "Immunität", "$25 bail will be removed from your bank account.", currentPlayer.getName());
                             currentPlayer.withdraw(25);
                         }
                     } else {
-                        showAlert(Alert.AlertType.INFORMATION, "You're not using a get-out-of-jail card -> $25 will be removed from your bank account.");
+                        showAlert(Alert.AlertType.INFORMATION, "Gsindl bleibt Gsindl", "$25 bail will be removed from your bank account.", currentPlayer.getName());
                         currentPlayer.withdraw(25);
                     }
-                    gameManager.moveNumberOfFields(-1);
                     showPlayersData();
                     //Disable player if balance is now negative
                     disablePlayer = gameManager.checkIfNegativeBalance();
                     if(disablePlayer){
-                        showAlert(Alert.AlertType.WARNING, "Your balance is negative: " + currentPlayer.getBalance() + " You lost. Goodbye!");
+                        showAlert(Alert.AlertType.WARNING, "", "You are too poor to post bail... welcome to the gulag, Goodbye!", currentPlayer.getName());
                         gameManager.disablePlayerFromGame(currentPlayer);
                         oneRemaining = gameManager.printStatsIfOneRemaining();
                         printWinnerStatistics(oneRemaining);
                     }
                 } else {
-                    showAlert(Alert.AlertType.INFORMATION,"You're in prison, but just for a short visit.");
+                    showAlert(Alert.AlertType.INFORMATION, "visiting dad", "You're in prison, but just for a short visit.", currentPlayer.getName());
                     showPlayersData();
                 }
                 break;
             case GO_TO_PRISON:
-                showAlert(Alert.AlertType.INFORMATION, "You've been arrested and are going to jail.");
-                gameManager.moveToPrison(currentPlayer);
+                showAlert(Alert.AlertType.INFORMATION, "ob in hefen!", "You've been arrested and are going to jail.", currentPlayer.getName());
+                gameManager.movePlayer(currentPlayer,  currentPlayer.getCurrentPositionIndex()-21);
                 showPlayersData();
                 playerActionAlertsBasedOnField(Field.FieldType.PRISON);
                 break;
@@ -544,7 +524,7 @@ public class GameBoardController implements Initializable {
                 button.setDisable(true);
                 removeDiceDots();
                 showNewDiceDots(diceArray);
-                gameManager.movePlayer(currentPlayer, diceArray);
+                gameManager.movePlayer(currentPlayer, diceArray[0]+ diceArray[1]);
                 showPlayersOnCurrentField();
                 showPlayersData();
                 Field.FieldType type = gameManager.checkCurrentPlayerFieldLocationType(currentPlayer);

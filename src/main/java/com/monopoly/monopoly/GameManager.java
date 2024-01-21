@@ -65,6 +65,9 @@ public class GameManager {
     }
 
     public void createActionCardListFromJson(String fileName){
+        /**
+         * read resources/fields.json and create Field objects
+         */
         try {
             InputStream inputStream = getClass().getResourceAsStream(fileName);
             if (inputStream != null) {
@@ -73,15 +76,10 @@ public class GameManager {
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     String name = jsonObject.getString("name");
-                    System.out.println("name: " + name); //TODO: Remove
                     String message = jsonObject.getString("message");
-                    System.out.println("message: " + message); //TODO: Remove
                     int money = jsonObject.getInt("money");
-                    System.out.println("money: " + money); //TODO: Remove
                     int moveDirection = jsonObject.getInt("moveDirection");
-                    System.out.println("moveDirection: " + moveDirection); //TODO: Remove
                     ActionCard.ActionType type = ActionCard.ActionType.valueOf(jsonObject.getString("type"));
-                    System.out.println("type: " + type); //TODO: Remove
                     listOfActionCards.add(new ActionCard(name, message, money, moveDirection, type));
                 }
             } else {
@@ -96,26 +94,30 @@ public class GameManager {
         Random random = new Random();
         int index = random.nextInt(listOfPlayers.size());
         this.currentPlayer = listOfPlayers.get(index);
-        System.out.println("startPlayer: " + currentPlayer.getName()); //TODO: Remove
     }
 
-    public int[] throwDice(){ //TODO: Implement in GUI (e.g., animation two dice?)
+    public int[] throwDice(){
         Random random = new Random();
         twoDice[0] = random.nextInt(1, 7);
         twoDice[1] = random.nextInt(1, 7);
         return twoDice;
     }
 
-    public void movePlayer(Player player, int [] diceResult){
-        int numberOfMoves = diceResult[0] + diceResult[1];
+    public void movePlayer(Player player, int diceResult){
+        /**
+         * move the player to the next field according to dice roll.
+         * deposit 200 when player crosses start
+         */
         int indexCurrentField = player.getCurrentPositionIndex();
         int fieldsSize = listOfFields.size() - 1;
-        int indexTargetField = indexCurrentField + numberOfMoves;
+        int indexTargetField = indexCurrentField + diceResult;
 
-        indexTargetField = indexTargetField > fieldsSize ? indexTargetField % fieldsSize : indexTargetField ;
-
+        if(indexTargetField > fieldsSize){
+            indexTargetField -= fieldsSize;
+            player.deposit(200);
+            player.setRoundNumber(player.getRoundNumber() + 1);
+        }
         player.setPreviousPositionIndex(indexCurrentField);
-
         player.setCurrentPositionIndex(indexTargetField);
     }
 
@@ -156,6 +158,7 @@ public class GameManager {
     }
 
     public void moveNumberOfFields(int numberOfFields){
+
         int temporary = currentPlayer.getCurrentPositionIndex();
         currentPlayer.setCurrentPositionIndex(temporary  + numberOfFields);
         currentPlayer.setPreviousPositionIndex(temporary);
@@ -164,12 +167,8 @@ public class GameManager {
 
     public void moveToStart(){
         int currentIndex = currentPlayer.getCurrentPositionIndex();
-        moveNumberOfFields(currentIndex * -1);
+        movePlayer(currentPlayer, currentIndex * -1);
         currentPlayer.setRoundNumber(currentPlayer.getRoundNumber() + 1);
-    }
-
-    public void moveToPrison(Player player){
-        moveNumberOfFields(-21);
     }
 
     public void chooseNextPlayer(Player currentPlayer){

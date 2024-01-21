@@ -24,7 +24,7 @@
     "rent": 15,
     "prices": [4, 20, 60, 250, 425, 600],
     "type": "PROPERTY",
-    "description": "In Penzing, you will find a lot of nature and architecture from Otto Wagner."
+    "description": "viel vom Otto Wagner"
   },
   {
     "id": "b4",
@@ -42,7 +42,7 @@
     "rent": 20,
     "prices": [18, 90, 270, 700, 875, 1050],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "da ist der Prater"
   },
   {
     "id": "b6",
@@ -60,7 +60,7 @@
     "rent": 16,
     "prices": [14, 70, 210, 550, 725, 900],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "TU - dir das nicht an, da gibts viel Mathe"
   },
   {
     "id": "b8",
@@ -69,7 +69,7 @@
     "rent": 14,
     "prices": [12, 60, 180, 500, 675, 850],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "SPG ftw"
   },
   {
     "id": "b9",
@@ -96,7 +96,7 @@
     "rent": 0,
     "prices": [],
     "type": "PRISON",
-    "description": "You either have done something bad and you deserve this, or you're completely innocent and life is unfair.",
+    "description": "You either have done something bad and you deserve this, or you're completely innocent and life is unfair."
   },
   {
     "id": "b12",
@@ -105,7 +105,7 @@
     "rent": 12,
     "prices": [10, 50, 150, 450, 625, 800],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "hängst du an deinem leben?"
   },
   {
     "id": "b13",
@@ -114,7 +114,7 @@
     "rent": 10,
     "prices": [8, 40, 120, 400, 575, 750],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "Es lebe der Zentralfriedhof"
   },
   {
     "id": "b14",
@@ -123,7 +123,7 @@
     "rent": 8,
     "prices": [6, 30, 90, 350, 525, 700],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "meidlinger hauptstraße, sonst kenn ich nix"
   },
   {
     "id": "b15",
@@ -141,7 +141,7 @@
     "rent": 35,
     "prices": [28, 150, 420, 1000, 1200, 1400],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "ein glas wasser, das macht dann bitte 8,99"
   },
   {
     "id": "b17",
@@ -150,7 +150,7 @@
     "rent": 20,
     "prices": [],
     "type": "PROPERTY",
-    "description": "When you purchase this train station, you also get a free t-shirt.",
+    "description": "geld oder leben"
   },
   {
     "id": "b18",
@@ -159,7 +159,7 @@
     "rent": 30,
     "prices": [25, 120, 360, 850, 1025, 1200],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "Schloss Belvedere und Stadtpark"
   },
   {
     "id": "b19",
@@ -186,7 +186,7 @@
     "rent": 25,
     "prices": [22, 110, 330, 800, 975, 1150],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "MAHÜ"
   },
   {
     "id": "b22",
@@ -195,7 +195,7 @@
     "rent": 0,
     "prices": [],
     "type": "FREE_PARKING",
-    "description": "Lucky you, it's not easy to find free parking these days.",
+    "description": "in wien nennen wir das: fiebertraum"
   },
   {
     "id": "b23",
@@ -204,7 +204,7 @@
     "rent": 18,
     "prices": [16, 80, 240, 600, 775, 950],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "Fische im Flakturm"
   },
   {
     "id": "b24",
@@ -213,7 +213,7 @@
     "rent": 18,
     "prices": [16, 80, 240, 600, 775, 950],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "der kleinste Bezirk"
   },
   {
     "id": "b25",
@@ -222,7 +222,7 @@
     "rent": 18,
     "prices": [16, 80, 240, 600, 775, 950],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "Uni wien"
   },
   {
     "id": "b26",
@@ -231,7 +231,7 @@
     "rent": 1,
     "prices": [1, 5, 20, 140, 315, 490],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "n/a"
   },
   {
     "id": "b27",
@@ -249,7 +249,7 @@
     "rent": 4,
     "prices": [3, 15, 50, 200, 375, 550],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "Stadthalle"
   },
   {
     "id": "b29",
@@ -267,7 +267,7 @@
     "rent": 3,
     "prices": [2, 10, 40, 180, 355, 530],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "gesöff"
   },
   {
     "id": "b31",
@@ -276,7 +276,7 @@
     "rent": 2,
     "prices": [1, 5, 20, 160, 335, 510],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "Von der Flächenaufteilung her entspricht Hernals dem Wiener Durchschnitt: Die Hälfte ist Grünland, etwas über ein Drittel Baufläche und der Rest wird als Verkehrsfläche genutzt."
   },
   {
     "id": "b32",
@@ -312,7 +312,7 @@
     "rent": 1,
     "prices": [1, 5, 20, 100, 275, 450],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "n/a"
   },
   {
     "id": "b36",
@@ -321,7 +321,7 @@
     "rent": 1,
     "prices": [1, 5, 20, 80, 255, 430],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "Alte Donau & Donauinsel"
   },
   {
     "id": "b37",
@@ -348,7 +348,7 @@
     "rent": 1,
     "prices": [1, 5, 20, 120, 295, 470],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "die gstopften"
   },
   {
     "id": "b40",
@@ -357,7 +357,7 @@
     "rent": 1,
     "prices": [1, 5, 20, 120, 295, 470],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "Alt-Erlaa und Industrie-Zentrum (gratis parken)"
   },
   {
     "id": "b41",
@@ -366,7 +366,7 @@
     "rent": 1,
     "prices": [1, 5, 20, 120, 295, 470],
     "type": "PROPERTY",
-    "description": "TODO"
+    "description": "UNO, na wart... falsches spiel"
   },
   {
     "id": "b42",
