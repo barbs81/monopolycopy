@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.monopoly.monopoly.GameBoardController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="950.0" stylesheets="@styles/GameBoard.css" styleClass="board" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.monopoly.monopoly.GameBoardController">
     <children>
-        <VBox fx:id="b22" layoutX="5.0" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b22" layoutX="5.0" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #38a2c2;">
          <children>
                 <ImageView fitHeight="53.5" fitWidth="53.5" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -34,7 +34,7 @@
                     </image>
                 </ImageView>
             </children></VBox>
-        <VBox fx:id="b21" layoutX="5.0" layoutY="73.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b21" layoutX="5.0" layoutY="73.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Mariahilf" textOverrun="CLIP">
                <font>
@@ -58,7 +58,7 @@
                     </image>
                 </ImageView>
             </children></VBox>
-        <VBox fx:id="b13" layoutX="5.0" layoutY="541.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b13" layoutX="5.0" layoutY="541.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Simmering" textOverrun="CLIP">
                <font>
@@ -66,7 +66,7 @@
                </font>
             </Label>
          </children></VBox>
-        <VBox fx:id="b12" layoutX="5.0" layoutY="600.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b12" layoutX="5.0" layoutY="600.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Favoriten" textOverrun="CLIP">
                <font>
@@ -74,7 +74,7 @@
                </font>
             </Label>
          </children></VBox>
-        <VBox fx:id="b16" layoutX="5.0" layoutY="366.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b16" layoutX="5.0" layoutY="366.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Innere Stadt" textOverrun="CLIP">
                <font>
@@ -82,7 +82,7 @@
                </font>
             </Label>
          </children></VBox>
-        <VBox fx:id="b18" layoutX="5.0" layoutY="249.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b18" layoutX="5.0" layoutY="249.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Landstraße" textOverrun="CLIP">
                <font>
@@ -90,7 +90,7 @@
                </font>
             </Label>
          </children></VBox>
-        <VBox fx:id="b17" layoutX="5.0" layoutY="307.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b17" layoutX="5.0" layoutY="307.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Praterstern" textOverrun="CLIP">
                <font>
@@ -125,7 +125,7 @@
                </VBox.margin>
                 </ImageView>
             </children></VBox>
-        <VBox fx:id="b14" layoutX="5.0" layoutY="483.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b14" layoutX="5.0" layoutY="483.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Meidling" textOverrun="CLIP">
                <font>
@@ -133,7 +133,7 @@
                </font>
             </Label>
          </children></VBox>
-        <VBox fx:id="b23" layoutX="63.5" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b23" layoutX="63.5" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Neubau" textOverrun="CLIP">
                <font>
@@ -141,7 +141,7 @@
                </font>
             </Label>
          </children></VBox>
-        <VBox fx:id="b32" layoutX="590.0" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b32" layoutX="590.0" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
             <children>
                 <ImageView fitHeight="53.5" fitWidth="53.5" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -149,7 +149,7 @@
                     </image>
                 </ImageView>
             </children></VBox>
-        <VBox fx:id="b24" layoutX="122.0" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b24" layoutX="122.0" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Josefstadt" textOverrun="CLIP">
                <font>
@@ -157,7 +157,7 @@
                </font>
             </Label>
          </children></VBox>
-        <VBox fx:id="b25" layoutX="180.5" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b25" layoutX="180.5" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Alsergrund" textOverrun="CLIP">
                <font>
@@ -165,7 +165,7 @@
                </font>
             </Label>
          </children></VBox>
-        <VBox fx:id="b26" layoutX="239.0" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b26" layoutX="239.0" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Währing" textOverrun="CLIP">
                <font>
@@ -173,7 +173,7 @@
                </font>
             </Label>
          </children></VBox>
-        <VBox fx:id="b27" layoutX="297.5" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b27" layoutX="297.5" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
             <children>
             <Label text="Hauptbahnhof" textOverrun="CLIP">
                <font>
@@ -192,7 +192,7 @@
                </VBox.margin>
                 </ImageView>
             </children></VBox>
-        <VBox fx:id="b28" layoutX="356.0" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b28" layoutX="356.0" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Rudolfsheim" textOverrun="CLIP">
                <font>
@@ -216,7 +216,7 @@
                </VBox.margin>
                 </ImageView>
             </children></VBox>
-        <VBox fx:id="b31" layoutX="531.5" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b31" layoutX="531.5" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Hernals" textOverrun="CLIP">
                <font>
@@ -224,7 +224,7 @@
                </font>
             </Label>
          </children></VBox>
-        <VBox fx:id="b30" layoutX="473.5" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b30" layoutX="473.5" layoutY="15.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Ottakring" textOverrun="CLIP">
                <font>
@@ -232,7 +232,7 @@
                </font>
             </Label>
          </children></VBox>
-        <VBox fx:id="b36" layoutX="590.0" layoutY="249.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b36" layoutX="590.0" layoutY="249.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Floridsdorf" textOverrun="CLIP">
                <font>
@@ -256,7 +256,7 @@
                </VBox.margin>
                 </ImageView>
             </children></VBox>
-        <VBox fx:id="b41" layoutX="590.0" layoutY="541.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b41" layoutX="590.0" layoutY="541.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Donaustadt" textOverrun="CLIP">
                <font>
@@ -293,7 +293,7 @@
                </VBox.margin>
                 </ImageView>
             </children></VBox>
-        <VBox fx:id="b35" layoutX="590.0" layoutY="190.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b35" layoutX="590.0" layoutY="190.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Briggittenau" textOverrun="CLIP">
                <font>
@@ -301,7 +301,7 @@
                </font>
             </Label>
          </children></VBox>
-        <VBox fx:id="b37" layoutX="590.0" layoutY="307.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b37" layoutX="590.0" layoutY="307.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Erdberg" textOverrun="CLIP">
                <font>
@@ -336,7 +336,7 @@
                </VBox.margin>
                 </ImageView>
             </children></VBox>
-        <VBox fx:id="b39" layoutX="590.0" layoutY="424.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b39" layoutX="590.0" layoutY="424.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Döbling" textOverrun="CLIP">
                <font>
@@ -344,7 +344,7 @@
                </font>
             </Label>
          </children></VBox>
-        <VBox fx:id="b40" layoutX="590.0" layoutY="483.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b40" layoutX="590.0" layoutY="483.0" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Liesing" textOverrun="CLIP">
                <font>
@@ -360,7 +360,7 @@
                     </image>
                 </ImageView>
             </children></VBox>
-        <VBox fx:id="b2" layoutX="531.5" layoutY="658.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray; -fx-border-color: white; -fx-border-width: 0px;">
+        <VBox fx:id="b2" layoutX="531.5" layoutY="658.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0; -fx-border-color: white; -fx-border-width: 0px;">
          <children>
             <Label text="Hietzing" textOverrun="CLIP">
                <font>
@@ -392,7 +392,7 @@
                     </image>
                 </ImageView>
             </children></VBox>
-        <VBox fx:id="b8" layoutX="180.5" layoutY="658.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: gray;">
+        <VBox fx:id="b8" layoutX="180.5" layoutY="658.5" prefHeight="53.5" prefWidth="53.5" style="-fx-background-color: #97dbf0;">
          <children>
             <Label text="Margareten" textOverrun="CLIP">
                <font>
@@ -683,7 +683,7 @@
             </Label>
             </children>
         </Pane>
-        <Pane layoutX="220.0" layoutY="300.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #B0E0E6;">
+        <Pane layoutX="220.0" layoutY="300.0" styleClass="dice" prefHeight="100.0" prefWidth="100.0" >
             <children>
                 <ImageView fx:id="d1" fitHeight="20.0" fitWidth="20.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -731,7 +731,7 @@
                 <Font name="Consolas Bold" size="18.0" />
             </font>
         </Label>
-        <Pane layoutX="330.0" layoutY="300.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #B0E0E6;">
+        <Pane layoutX="330.0" layoutY="300.0" styleClass="dice" prefHeight="100.0" prefWidth="100.0" >
             <children>
                 <ImageView fx:id="d10" fitHeight="20.0" fitWidth="20.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -782,15 +782,15 @@
         </Pane>
         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="230.0" layoutY="478.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@MonopolgyGuyWithMoney.jpeg" />
+                <Image url="@GuyWithBagOfMoney.png" />
             </image>
         </ImageView>
-        <Button fx:id="throwDice" layoutX="284.0" layoutY="409.0" mnemonicParsing="false" style="-fx-background-color: #5F9EA0; -fx-cursor: hand;" text="Throw Dice">
+        <Button fx:id="throwDice" styleClass="button, throwDice" layoutX="284.0" layoutY="409.0" mnemonicParsing="false"  text="Throw Dice">
             <font>
                 <Font name="Consolas Bold" size="12.0" />
             </font>
         </Button>
-        <Button fx:id="endGame" layoutX="866.0" layoutY="720.0" mnemonicParsing="false" prefWidth="70.0" style="-fx-background-color: #5F9EA0;" text="END GAME">
+        <Button fx:id="endGame" styleClass="button" layoutX="840.0" layoutY="700.0" mnemonicParsing="false" prefWidth="70.0" text="END GAME">
             <font>
                 <Font name="Consolas Bold" size="12.0" />
             </font>

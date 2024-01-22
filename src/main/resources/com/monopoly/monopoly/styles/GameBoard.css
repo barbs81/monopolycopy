@@ -1,0 +1,38 @@
+.board{
+-fx-background-color: #5F9EA0;
+}
+VBox{
+-fx-border-radius: 3px;
+-fx-background-radius: 3px;
+}
+
+
+VBox image{
+    -fx-fit-width: 50;
+    -fx-fit-height: 50;
+}
+
+.button{
+-fx-border-color: #000;
+-fx-border-width: 1;
+-fx-border-radius: 10px;
+    -fx-cursor: hand;
+    -fx-background-color: #5F9EA0;
+    -fx-padding: 10 15 10 15;
+    -fx-pref-width: 100px;
+    -fx-background-radius: 10px;
+}
+
+.button:hover {
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+}
+
+.dice{
+-fx-border-color: #000000;
+-fx-border-width: 2;
+-fx-border-radius: 10px;
+-fx-background-radius: 10px;
+-fx-background-color: #F2EBE3;
+}
+
